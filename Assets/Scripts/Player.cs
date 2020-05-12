@@ -5,7 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public enum PlayerStates { IDLING, MOVING, DASHING };
+    public enum PlayerOrder { Player1, Player2 };
     public PlayerStates state;
+    public PlayerOrder order;
 
     Rigidbody rigidBody;
     [Header("Movement")]
@@ -53,35 +55,72 @@ public class Player : MonoBehaviour
             state = PlayerStates.IDLING;
 
             //Keyboard
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            if (order == PlayerOrder.Player1)
             {
-                rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
-                state = PlayerStates.MOVING;
-
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
                 {
-                    transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
                     state = PlayerStates.MOVING;
+
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+                        state = PlayerStates.MOVING;
+                    }
+
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+                        state = PlayerStates.MOVING;
+                    }
                 }
-
-                if (Input.GetKey(KeyCode.D))
+                else
                 {
-                    transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                    state = PlayerStates.MOVING;
+                    if (Input.GetKey(KeyCode.A))
+                    {
+                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+                        state = PlayerStates.IDLING;
+                    }
+
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+                        state = PlayerStates.IDLING;
+                    }
                 }
             }
             else
             {
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
                 {
-                    transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-                    state = PlayerStates.IDLING;
-                }
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
 
-                if (Input.GetKey(KeyCode.D))
+                    if (Input.GetKey(KeyCode.J))
+                    {
+                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+                        state = PlayerStates.MOVING;
+                    }
+
+                    if (Input.GetKey(KeyCode.L))
+                    {
+                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+                        state = PlayerStates.MOVING;
+                    }
+                }
+                else
                 {
-                    transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                    state = PlayerStates.IDLING;
+                    if (Input.GetKey(KeyCode.J))
+                    {
+                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+                        state = PlayerStates.IDLING;
+                    }
+
+                    if (Input.GetKey(KeyCode.L))
+                    {
+                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+                        state = PlayerStates.IDLING;
+                    }
                 }
             }
         }

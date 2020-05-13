@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public enum PlayerStates { IDLING, MOVING, DASHING };
-    public enum PlayerOrder { Player1, Player2 };
+    public enum PlayerOrder { Player1, Player2, Player3, Player4 };
     public PlayerStates state;
     public PlayerOrder order;
 
@@ -57,70 +57,211 @@ public class Player : MonoBehaviour
             //Keyboard
             if (order == PlayerOrder.Player1)
             {
-                if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+                if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
                 {
+                    transform.rotation = Quaternion.Euler(0, 45, 0);
                     rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
                     state = PlayerStates.MOVING;
-
-                    if (Input.GetKey(KeyCode.A))
-                    {
-                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-                        state = PlayerStates.MOVING;
-                    }
-
-                    if (Input.GetKey(KeyCode.D))
-                    {
-                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                        state = PlayerStates.MOVING;
-                    }
                 }
-                else
+                else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
                 {
-                    if (Input.GetKey(KeyCode.A))
-                    {
-                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-                        state = PlayerStates.IDLING;
-                    }
+                    transform.rotation = Quaternion.Euler(0, 315, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+                {
+                    transform.rotation = Quaternion.Euler(0, 135, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+                {
+                    transform.rotation = Quaternion.Euler(0, 225, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.W))
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.S))
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.A))
+                {
+                    transform.rotation = Quaternion.Euler(0, 270, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
 
-                    if (Input.GetKey(KeyCode.D))
-                    {
-                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                        state = PlayerStates.IDLING;
-                    }
+                else if (Input.GetKey(KeyCode.D))
+                {
+                    transform.rotation = Quaternion.Euler(0, 90, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+
+            }
+            else if (order == PlayerOrder.Player2)
+            {
+                if (Input.GetKey(KeyCode.I) && Input.GetKey(KeyCode.L))
+                {
+                    transform.rotation = Quaternion.Euler(0, 45, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.I) && Input.GetKey(KeyCode.J))
+                {
+                    transform.rotation = Quaternion.Euler(0, 315, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.L))
+                {
+                    transform.rotation = Quaternion.Euler(0, 135, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.K) && Input.GetKey(KeyCode.J))
+                {
+                    transform.rotation = Quaternion.Euler(0, 225, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.I))
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.K))
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.J))
+                {
+                    transform.rotation = Quaternion.Euler(0, 270, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+
+                else if (Input.GetKey(KeyCode.L))
+                {
+                    transform.rotation = Quaternion.Euler(0, 90, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
                 }
             }
-            else
+            else if(order == PlayerOrder.Player3)
             {
-                if (Input.GetKey(KeyCode.I) || Input.GetKey(KeyCode.K))
+                if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
                 {
+                    transform.rotation = Quaternion.Euler(0, 45, 0);
                     rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
                     state = PlayerStates.MOVING;
-
-                    if (Input.GetKey(KeyCode.J))
-                    {
-                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-                        state = PlayerStates.MOVING;
-                    }
-
-                    if (Input.GetKey(KeyCode.L))
-                    {
-                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                        state = PlayerStates.MOVING;
-                    }
                 }
-                else
+                else if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
                 {
-                    if (Input.GetKey(KeyCode.J))
-                    {
-                        transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-                        state = PlayerStates.IDLING;
-                    }
+                    transform.rotation = Quaternion.Euler(0, 315, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.rotation = Quaternion.Euler(0, 135, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.rotation = Quaternion.Euler(0, 225, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow))
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.LeftArrow))
+                {
+                    transform.rotation = Quaternion.Euler(0, 270, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
 
-                    if (Input.GetKey(KeyCode.L))
-                    {
-                        transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-                        state = PlayerStates.IDLING;
-                    }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+                    transform.rotation = Quaternion.Euler(0, 90, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+            }
+            else if (order == PlayerOrder.Player4)
+            {
+                if (Input.GetKey(KeyCode.Keypad5) && Input.GetKey(KeyCode.Keypad3))
+                {
+                    transform.rotation = Quaternion.Euler(0, 45, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.Keypad5) && Input.GetKey(KeyCode.Keypad1))
+                {
+                    transform.rotation = Quaternion.Euler(0, 315, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.Keypad2) && Input.GetKey(KeyCode.Keypad3))
+                {
+                    transform.rotation = Quaternion.Euler(0, 135, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.Keypad2) && Input.GetKey(KeyCode.Keypad1))
+                {
+                    transform.rotation = Quaternion.Euler(0, 225, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.Keypad5))
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.Keypad2))
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+                else if (Input.GetKey(KeyCode.Keypad1))
+                {
+                    transform.rotation = Quaternion.Euler(0, 270, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
+                }
+
+                else if (Input.GetKey(KeyCode.Keypad3))
+                {
+                    transform.rotation = Quaternion.Euler(0, 90, 0);
+                    rigidBody.MovePosition(transform.position + transform.forward * moveSpeed * Time.fixedDeltaTime);
+                    state = PlayerStates.MOVING;
                 }
             }
         }

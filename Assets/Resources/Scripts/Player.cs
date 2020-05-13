@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class Player : MonoBehaviour
     public enum PlayerOrder { Player1, Player2, Player3, Player4 };
     public PlayerStates state;
     public PlayerOrder order;
+
+    private PhotonView myPhotonView;
 
     Rigidbody rigidBody;
     [Header("Movement")]
@@ -21,12 +24,16 @@ public class Player : MonoBehaviour
         state = PlayerStates.IDLING;
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
+        myPhotonView = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        inputHandler();
+        if (myPhotonView.IsMine)
+        {
+            inputHandler();
+        }
     }
 
     private void inputHandler()

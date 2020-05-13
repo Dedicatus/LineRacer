@@ -15,6 +15,6 @@ public class GameSetupController : MonoBehaviour
     private void CreatePlayer()
     {
         Debug.Log("Creating Player");
-        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), Vector3.zero, Quaternion.identity);
+        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), new Vector3(0f, 1.5f, 0f), Quaternion.identity);
     }
 }

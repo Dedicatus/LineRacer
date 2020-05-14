@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Lobby.unity
-    guid: 7f0f7f9edd850ef41abc6b198fa46173
+    path: Assets/Scenes/DelayStartMenu.unity
+    guid: b119e300ef5fc9d4ba1f64bb3a86c502
+  - enabled: 1
+    path: Assets/Scenes/DelayStartWaitingRoom.unity
+    guid: bad7fb8f05239064e923c91ad558d9a8
   - enabled: 1
     path: Assets/Scenes/Room.unity
     guid: 2340adb7ddcf4a347a586055e1d11b5d

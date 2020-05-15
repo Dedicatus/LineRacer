@@ -80,11 +80,11 @@ public class GameSetupController : MonoBehaviour
         {
             case 1:
                 team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
-               team2Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(5f, 1f, 0f), Quaternion.identity);
+               team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
             case 2:
                 team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
-                team2Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(5f, 1f, 0f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
             case 3:
                 team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);

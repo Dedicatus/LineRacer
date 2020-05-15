@@ -10,7 +10,9 @@ public class GameSetupController : MonoBehaviour
 {
     private ObiParticleAttachment[] attachments;
     [SerializeField]
-    private GameObject ropePrefab;
+    private GameObject ropePrefabTeam1;
+    [SerializeField]
+    private GameObject ropePrefabTeam2;
     private GameObject rope;
     private GameObject[] players;
     [SerializeField]
@@ -46,16 +48,16 @@ public class GameSetupController : MonoBehaviour
         Debug.Log("Creating Player");
         switch (PhotonNetwork.LocalPlayer.ActorNumber) {
             case 1:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[0].position, Quaternion.identity);
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1"), spawnPoints[0].position, Quaternion.identity);
                 break;
             case 2:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[1].position, Quaternion.identity);
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2"), spawnPoints[1].position, Quaternion.identity);
                 break;
             case 3:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[2].position, Quaternion.identity);
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3"), spawnPoints[2].position, Quaternion.identity);
                 break;
             case 4:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[3].position, Quaternion.identity);
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4"), spawnPoints[3].position, Quaternion.identity);
                 break;
 
         }
@@ -64,9 +66,24 @@ public class GameSetupController : MonoBehaviour
     }
 
 
-    private void CreateRope() { 
+    private void CreateRope() {
         Debug.Log("Creating Rope");
-        rope = GameObject.Instantiate(ropePrefab, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+        switch (PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            case 1:
+                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                break;
+            case 2:
+                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                break;
+            case 3:
+                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                break;
+            case 4:
+                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                break;
+
+        }
     }
 
     private void Update()

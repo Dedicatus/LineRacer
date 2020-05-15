@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 4881620516748067243}
   - component: {fileID: 7500097433537129595}
   m_Layer: 0
-  m_Name: Player2
+  m_Name: Player4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  order: 3
+  order: 0
   moveSpeed: 5
   turnSpeed: 250
 --- !u!114 &507593549412939865

@@ -194,7 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ef79288b09cbc45964dd058d9080bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ropePrefab: {fileID: 2864251251168865538, guid: 4478b6cffda1015468aef8e295d59489,
+  ropePrefabTeam1: {fileID: 2099873528244038651, guid: 5ac0c8b5997872b46901d4544c869a37,
+    type: 3}
+  ropePrefabTeam2: {fileID: 369706946919653968, guid: 7bcbf460f8b3b5a45a6d4e664618fb5a,
     type: 3}
   spawnPoints:
   - {fileID: 308123444}

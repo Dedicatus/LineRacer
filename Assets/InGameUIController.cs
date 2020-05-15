@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class InGameUIController : MonoBehaviour
     [SerializeField] private Text timerText;
     [SerializeField] private Text team1ScoreText;
     [SerializeField] private Text team2ScoreText;
+    [SerializeField] private Text pingText;
 
     private GameController myGameController;
 
@@ -21,6 +23,7 @@ public class InGameUIController : MonoBehaviour
     void Update()
     {
         timerText.text = ((int)myGameController.getGameTimer()).ToString();
+        if (PhotonNetwork.OfflineMode == false) pingText.text = PhotonNetwork.GetPing().ToString();
     }
 
     public void updateScore(GameController.Team team, int score)

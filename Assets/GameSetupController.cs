@@ -23,7 +23,7 @@ public class GameSetupController : MonoBehaviour
     [SerializeField]
     private Transform[] spawnPoints;
     [SerializeField]
-    private Transform sheepSpawnPoint;
+    private Transform[] sheepSpawnPoints;
 
 
     private int roomSize;
@@ -48,8 +48,10 @@ public class GameSetupController : MonoBehaviour
 
         team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
         team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
-
-        if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
+        foreach (Transform sheepSpawnPoint in sheepSpawnPoints)
+        {
+            if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
+        }
 
     }
 

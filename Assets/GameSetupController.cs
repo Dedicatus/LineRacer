@@ -49,7 +49,7 @@ public class GameSetupController : MonoBehaviour
         team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
         // team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
 
-        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation);
+        if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
 
     }
 

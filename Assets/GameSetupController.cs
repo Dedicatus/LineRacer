@@ -44,7 +44,7 @@ public class GameSetupController : MonoBehaviour
        
 
         team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
-        team2Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
+        team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
 
 
 

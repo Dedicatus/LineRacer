@@ -13,10 +13,13 @@ public class GameSetupController : MonoBehaviour
     private GameObject ropePrefab;
     private GameObject rope;
     private GameObject[] players;
+    [SerializeField]
+    private Transform[] spawnPoints;
 
     private int roomSize;
     private bool allCreated;
     private bool initialized;
+
 
     private void Awake()
     {
@@ -39,10 +42,25 @@ public class GameSetupController : MonoBehaviour
 
     private void CreatePlayer()
     {
-        
+
         Debug.Log("Creating Player");
-        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), new Vector3(Random.Range(-5f,5f),1.5f, Random.Range(-5f, 5f)), Quaternion.identity);
-        //PhotonNetwork.AllocateViewID(PhotonNetwork.PlayerList.Length);
+        switch (PhotonNetwork.LocalPlayer.ActorNumber) {
+            case 1:
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[0].position, Quaternion.identity);
+                break;
+            case 2:
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[1].position, Quaternion.identity);
+                break;
+            case 3:
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[2].position, Quaternion.identity);
+                break;
+            case 4:
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "PhotonPlayer"), spawnPoints[3].position, Quaternion.identity);
+                break;
+
+        }
+
+        
     }
 
 
@@ -57,7 +75,8 @@ public class GameSetupController : MonoBehaviour
         {
             if (!allCreated)
             {
-                if (PhotonNetwork.PlayerList.Length == roomSize)
+                // CHECK IF ALL PLAYERS CREATED
+                if (GameObject.FindGameObjectsWithTag("Player").Length == roomSize)
                 {
                     allCreated = true;
                    
@@ -65,6 +84,7 @@ public class GameSetupController : MonoBehaviour
             }
             else
             {
+                //ASSIGN SCENE
                 players = GameObject.FindGameObjectsWithTag("Player");
                 Debug.Log(players.Length);
                 rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
@@ -74,4 +94,5 @@ public class GameSetupController : MonoBehaviour
             }
         }
     }
+
 }

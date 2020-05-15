@@ -33,7 +33,7 @@ public class GameSetupController : MonoBehaviour
 
     private void Awake()
     {
-        roomSize = 2;
+        roomSize = 4;
 
         initialized = false;
         allCreated = false;
@@ -47,7 +47,7 @@ public class GameSetupController : MonoBehaviour
        
 
         team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
-        // team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
+        team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
 
         if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
 
@@ -83,11 +83,11 @@ public class GameSetupController : MonoBehaviour
         {
             case 1:
                 team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
-               // team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
             case 2:
                 team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
-              //  team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
             case 3:
                 team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);

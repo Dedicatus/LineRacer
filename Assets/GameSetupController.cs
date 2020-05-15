@@ -8,12 +8,17 @@ using Obi;
 // This script will be added to any multiplayer scene
 public class GameSetupController : MonoBehaviour
 {
-    private ObiParticleAttachment[] attachments;
+    private ObiParticleAttachment[] team1Attachments;
+    private ObiParticleAttachment[] team2Attachments;
+
+
     [SerializeField]
     private GameObject ropePrefabTeam1;
     [SerializeField]
     private GameObject ropePrefabTeam2;
-    private GameObject rope;
+    private GameObject team1Rope;
+    private GameObject team2Rope;
+
     private GameObject[] players;
     [SerializeField]
     private Transform[] spawnPoints;
@@ -38,8 +43,11 @@ public class GameSetupController : MonoBehaviour
     {
        
 
-        attachments = rope.GetComponentsInChildren<ObiParticleAttachment>();
-        
+        team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
+        //team2Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
+
+
+
     }
 
     private void CreatePlayer()
@@ -71,16 +79,20 @@ public class GameSetupController : MonoBehaviour
         switch (PhotonNetwork.LocalPlayer.ActorNumber)
         {
             case 1:
-                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
+               // team2Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
             case 2:
-                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
+                //team2Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
             case 3:
-                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
                 break;
             case 4:
-                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
                 break;
 
         }
@@ -108,15 +120,22 @@ public class GameSetupController : MonoBehaviour
                 foreach (GameObject player in players) {
 
                     if (player.GetComponent<PhotonView>().Owner.ActorNumber == 1) {
-                        attachments[1].target = player.transform;
+                        team1Attachments[1].target = player.transform;
                     }
                     if (player.GetComponent<PhotonView>().Owner.ActorNumber == 2)
                     {
-                        attachments[0].target = player.transform;
+                        team1Attachments[0].target = player.transform;
                     }
-
+                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 3)
+                    {
+                        team2Attachments[1].target = player.transform;
+                    }
+                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 4)
+                    {
+                        team2Attachments[0].target = player.transform;
+                    }
                 }
-               rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
+               team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
                 //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
                 //{
                 //    attachments[0].target = players[0].transform;

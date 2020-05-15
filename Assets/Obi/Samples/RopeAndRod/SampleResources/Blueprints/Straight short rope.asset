@@ -1403,11 +1403,13 @@ MonoBehaviour:
   - {fileID: 7841934602975071524}
   - {fileID: -3887586698002616372}
   - {fileID: 7494513515647159662}
+  - {fileID: 2538251541852215149}
   - {fileID: -8668036182857469135}
   - {fileID: 8673311686603544650}
   path:
     m_Names:
     - start
+    - end
     - end
     - end
     - end
@@ -1428,19 +1430,24 @@ MonoBehaviour:
         position: {x: -1, y: 0, z: 0}
         outTangent: {x: 0, y: 0, z: 0}
       - tangentMode: 0
-        inTangent: {x: 0, y: 0, z: 0}
+        inTangent: {x: -0, y: -0, z: -0}
         position: {x: -1, y: 0, z: 0}
-        outTangent: {x: 0.25, y: 0, z: 0}
+        outTangent: {x: 0.07260364, y: 0, z: 0}
+      - tangentMode: 0
+        inTangent: {x: -0.4102063, y: 0, z: 0.00034243142}
+        position: {x: -0.20676795, y: 0, z: -0.0005518263}
+        outTangent: {x: 1.0022789, y: 0, z: -0.000836681}
       - tangentMode: 1
-        inTangent: {x: -0.25398636, y: 0, z: 0.0018479959}
+        inTangent: {x: -0.1802249, y: 0, z: 0.001311311}
         position: {x: 2.5737243, y: 0, z: -0.0043307245}
-        outTangent: {x: 0.25398636, y: -0, z: -0.0018479959}
+        outTangent: {x: 0.1802249, y: -0, z: -0.001311311}
       - tangentMode: 0
         inTangent: {x: 0, y: 0, z: 0}
         position: {x: 2.5744524, y: 0, z: 0.00000050717017}
         outTangent: {x: -0, y: -0, z: -0}
     m_Normals:
       data:
+      - {x: 0, y: 1, z: 0}
       - {x: 0, y: 1, z: 0}
       - {x: 0, y: 1, z: 0}
       - {x: 0, y: 1, z: 0}
@@ -1455,8 +1462,10 @@ MonoBehaviour:
       - {r: 1, g: 1, b: 1, a: 1}
       - {r: 1, g: 1, b: 1, a: 1}
       - {r: 1, g: 1, b: 1, a: 1}
+      - {r: 1, g: 1, b: 1, a: 1}
     m_Thickness:
       data:
+      - 1
       - 1
       - 1
       - 1
@@ -1471,6 +1480,7 @@ MonoBehaviour:
       - 0.1
       - 0.1
       - 0.1
+      - 0.1
     m_RotationalMasses:
       data:
       - 1
@@ -1479,8 +1489,9 @@ MonoBehaviour:
       - 1
       - 1
       - 1
+      - 1
     m_Phases:
-      data: 010000000100000001000000010000000100000001000000
+      data: 01000000010000000100000001000000010000000100000001000000
     m_Closed: 0
     m_ArcLengthTable:
     - 0
@@ -1733,6 +1744,20 @@ MonoBehaviour:
   - 0.16518694
   - 0
   pooledParticles: 100
+--- !u!114 &2538251541852215149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
+  m_Name: end
+  m_EditorClassIdentifier: 
+  particleIndices: 
+  m_Blueprint: {fileID: 11400000}
 --- !u!114 &7494513515647159662
 MonoBehaviour:
   m_ObjectHideFlags: 0

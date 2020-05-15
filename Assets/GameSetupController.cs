@@ -84,20 +84,20 @@ public class GameSetupController : MonoBehaviour
         switch (PhotonNetwork.LocalPlayer.ActorNumber)
         {
             case 1:
-                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1f, -5.5f), Quaternion.identity);
-                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1f, -5.5f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1.15f, -5.5f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
                 break;
             case 2:
-                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1f, -5.5f), Quaternion.identity);
-                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1f, -5.5f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1.15f, -5.5f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
                 break;
             case 3:
-                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1f, -5.5f), Quaternion.identity);
-                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1f, -5.5f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1.15f, -5.5f), Quaternion.identity);
                 break;
             case 4:
-                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1f, -5.5f), Quaternion.identity);
-                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1f, -5.5f), Quaternion.identity);
+                team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
+                team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-17f, 1.15f, -5.5f), Quaternion.identity);
                 break;
 
         }

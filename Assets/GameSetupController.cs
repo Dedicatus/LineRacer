@@ -88,8 +88,15 @@ public class GameSetupController : MonoBehaviour
                 players = GameObject.FindGameObjectsWithTag("Player");
                 Debug.Log(players.Length);
                 rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
-                attachments[0].target = players[0].transform;
-                attachments[1].target = players[1].transform;
+                if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+                {
+                    attachments[0].target = players[0].transform;
+                    attachments[1].target = players[1].transform;
+                }
+                else {
+                    attachments[0].target = players[1].transform;
+                    attachments[1].target = players[0].transform;
+                }
                 initialized = true;
             }
         }

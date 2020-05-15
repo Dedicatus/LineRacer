@@ -71,16 +71,16 @@ public class GameSetupController : MonoBehaviour
         switch (PhotonNetwork.LocalPlayer.ActorNumber)
         {
             case 1:
-                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
                 break;
             case 2:
-                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-5f, 1f, 0f), Quaternion.identity);
                 break;
             case 3:
-                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
             case 4:
-                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(0f, 1.5f, 0f), Quaternion.identity);
+                rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(5f, 1f, 0f), Quaternion.identity);
                 break;
 
         }
@@ -116,7 +116,7 @@ public class GameSetupController : MonoBehaviour
                     }
 
                 }
-              //  rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
+               rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
                 //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
                 //{
                 //    attachments[0].target = players[0].transform;

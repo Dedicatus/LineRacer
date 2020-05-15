@@ -14,7 +14,7 @@ public class SetEndTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.Instantiate(rope);
+       rope =  GameObject.Instantiate(rope);
         rope.transform.position =  (pin1.position + pin2.position)/2;
         particleAttachments = rope.GetComponentsInChildren<ObiParticleAttachment>();
         particleAttachments[0].target = pin1;

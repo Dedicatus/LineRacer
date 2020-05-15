@@ -104,16 +104,28 @@ public class GameSetupController : MonoBehaviour
                 //ASSIGN SCENE
                 players = GameObject.FindGameObjectsWithTag("Player");
                 Debug.Log(players.Length);
-                rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
-                if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
-                {
-                    attachments[0].target = players[0].transform;
-                    attachments[1].target = players[1].transform;
+
+                foreach (GameObject player in players) {
+
+                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 1) {
+                        attachments[1].target = player.transform;
+                    }
+                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 2)
+                    {
+                        attachments[0].target = player.transform;
+                    }
+
                 }
-                else {
-                    attachments[0].target = players[1].transform;
-                    attachments[1].target = players[0].transform;
-                }
+              //  rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
+                //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
+                //{
+                //    attachments[0].target = players[0].transform;
+                //    attachments[1].target = players[1].transform;
+                //}
+                //else {
+                //    attachments[0].target = players[1].transform;
+                //    attachments[1].target = players[0].transform;
+                //}
                 initialized = true;
             }
         }

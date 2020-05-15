@@ -315,6 +315,7 @@ MonoBehaviour:
   timerText: {fileID: 6505959553562388038}
   team1ScoreText: {fileID: 6505959553780341477}
   team2ScoreText: {fileID: 6505959552948079561}
+  pingText: {fileID: 7741470782047630797}
 --- !u!1 &6505959553389482176
 GameObject:
   m_ObjectHideFlags: 0

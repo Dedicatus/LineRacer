@@ -1,0 +1,94 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GameController : MonoBehaviour
+{
+    public enum GameState { Preparation, Playing, Result }
+    public enum Team { Team1, Team2 }
+
+    private GameState myState;
+
+    [SerializeField] int team1Score;
+    [SerializeField] int team2Score;
+
+    [SerializeField] float preparationTime = 3.0f;
+    [SerializeField] float preparationTimer;
+
+    [SerializeField] float gameTime = 30.0f;
+    [SerializeField] float gameTimer;
+
+    private InGameUIController myInGameUIController;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        myInGameUIController = GameObject.FindWithTag("System").transform.Find("InGameUIController").GetComponent<InGameUIController>();
+        myState = GameState.Preparation;
+        team1Score = 0;
+        team2Score = 0;
+        preparationTimer = preparationTime;
+        gameTimer = gameTime;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        switch (myState)
+        {
+            case GameState.Preparation:
+                preparationTimer -= Time.deltaTime;
+                if (preparationTimer < 0) { startGame(); }
+                break;
+            case GameState.Playing:
+                gameTimer -= Time.deltaTime;
+                if (gameTimer < 0) { endGame(); }
+                break;
+        }
+    }
+
+    public void startGame()
+    {
+        if (myState == GameState.Preparation)
+        {
+            myState = GameState.Playing;
+            preparationTimer = preparationTime;
+        }
+    }
+
+    public void endGame()
+    {
+        if (myState == GameState.Playing)
+        {
+            myState = GameState.Result;
+            gameTimer = gameTime;
+        }
+    }
+
+    public GameState getCurState()
+    {
+        return myState;
+    }
+
+    public float getGameTimer()
+    {
+        return gameTimer;
+    }
+
+    public void addScore(Team team, int score)
+    {
+        switch (team)
+        {
+            case Team.Team1:
+                team1Score += score;
+                myInGameUIController.updateScore(team, team1Score);
+                break;
+            case Team.Team2:
+                team2Score += score;
+                myInGameUIController.updateScore(team, team2Score);
+                break;
+            default:
+                break;
+        }
+    }
+}

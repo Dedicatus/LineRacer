@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     private void inputHandler()
     {
-        movePlayer();
+        if (GameObject.FindWithTag("GameController").GetComponent<GameController>().getCurState() == GameController.GameState.Playing) { movePlayer(); }
     }
 
     private void movePlayer()

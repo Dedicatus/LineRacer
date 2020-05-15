@@ -131,11 +131,11 @@ public class GameSetupController : MonoBehaviour
                     }
                     if (player.GetComponent<PhotonView>().Owner.ActorNumber == 3)
                     {
-                        team2Attachments[1].target = player.transform;
+                        team2Attachments[0].target = player.transform;
                     }
                     if (player.GetComponent<PhotonView>().Owner.ActorNumber == 4)
                     {
-                        team2Attachments[0].target = player.transform;
+                        team2Attachments[1].target = player.transform;
                     }
                 }
                team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;

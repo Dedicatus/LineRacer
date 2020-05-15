@@ -22,6 +22,9 @@ public class GameSetupController : MonoBehaviour
     private GameObject[] players;
     [SerializeField]
     private Transform[] spawnPoints;
+    [SerializeField]
+    private Transform sheepSpawnPoint;
+
 
     private int roomSize;
     private bool allCreated;
@@ -44,9 +47,9 @@ public class GameSetupController : MonoBehaviour
        
 
         team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
-       // team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
+        // team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
 
-
+        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation);
 
     }
 

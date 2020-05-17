@@ -167,6 +167,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7670203331834258440}
+  - {fileID: 5163684972614953269}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -201,6 +202,11 @@ MonoBehaviour:
   order: 0
   moveSpeed: 10
   turnSpeed: 250
+  isMaster: 1
+  forward: 0
+  backward: 0
+  left: 0
+  right: 0
 --- !u!1001 &8894061982140866015
 PrefabInstance:
   m_ObjectHideFlags: 0

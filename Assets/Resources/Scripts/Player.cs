@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviourPunCallbacks, IPunObservable
 {
     public enum PlayerStates { IDLING, MOVING, DASHING };
     public enum PlayerOrder { Player1, Player2, Player3, Player4 };
@@ -13,11 +13,20 @@ public class Player : MonoBehaviour
     private PhotonView myPhotonView;
 
     Rigidbody rigidBody;
+
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float turnSpeed = 250f;
 
     float cameraRotationY;
+
+    [Header("RemoteDebug")]
+    [SerializeField] private bool isMaster;
+    [SerializeField] private bool forward;
+    [SerializeField] private bool backward;
+    [SerializeField] private bool left;
+    [SerializeField] private bool right;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +34,10 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
         myPhotonView = GetComponent<PhotonView>();
+        forward = false;
+        backward = false;
+        left = false;
+        right = false;
     }
 
     // Update is called once per frame
@@ -34,21 +47,32 @@ public class Player : MonoBehaviour
         {
             inputHandler();
         }
+  
     }
 
     private void inputHandler()
     {
-        if (GameObject.FindWithTag("GameController").GetComponent<GameController>().getCurState() == GameController.GameState.Playing) { movePlayer(); }
+        if (GameObject.FindWithTag("GameController").GetComponent<GameController>().getCurState() == GameController.GameState.Playing)
+        {
+            if (PhotonNetwork.OfflineMode || isMaster)
+            {
+                localInputHandler();
+            }
+            else
+            {
+                remoteInputHandler();
+            }
+        }
     }
 
-    private void movePlayer()
+    private void localInputHandler()
     {
         //XBOX Controller
         if (Mathf.Abs(Input.GetAxis("Horizontal_L")) > 0.19f || Mathf.Abs(Input.GetAxis("Vertical_L")) > 0.19f)
         {
             float x = Input.GetAxis("Horizontal_L"), y = Input.GetAxis("Vertical_L");
             transform.eulerAngles = new Vector3(0, cameraRotationY, 0);
-            float angle = get_angle(x, y), currentAngle = (transform.localEulerAngles.y % 360 + 360) % 360;
+            float angle = getAngle(x, y), currentAngle = (transform.localEulerAngles.y % 360 + 360) % 360;
             transform.eulerAngles = new Vector3(0, angle + currentAngle, 0);
             //transform.Rotate(Vector3.up,angle- currentAngle);
             //Debug.Log("camera:"+cameraRotationY);
@@ -274,7 +298,65 @@ public class Player : MonoBehaviour
         }
     }
 
-    float get_angle(float x, float y)
+    private void remoteInputHandler()
+    {
+        state = PlayerStates.IDLING;
+
+        //Keyboard
+        if (Input.GetKey(KeyCode.W))
+        {
+            forward = true;
+        }
+        else
+        {
+            forward = false;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            backward = true;
+        }
+        else
+        {
+            backward = false;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            left = true;
+        }
+        else
+        {
+            left = false;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            right = true;
+        }
+        else
+        {
+            right = false;
+        }
+    }
+
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(forward);
+            stream.SendNext(backward);
+            stream.SendNext(left);
+            stream.SendNext(right);
+        }
+        else
+        {
+            forward = (bool)stream.ReceiveNext();
+            backward = (bool)stream.ReceiveNext();
+            left = (bool)stream.ReceiveNext();
+            right = (bool)stream.ReceiveNext();
+        }   
+    }
+
+    float getAngle(float x, float y)
     {
         float theta = Mathf.Atan2(x, y) - Mathf.Atan2(0, 1.0f);
         if (theta > (float)Mathf.PI)
@@ -290,5 +372,35 @@ public class Player : MonoBehaviour
     public void changeCameraY(float y)
     {
         cameraRotationY = y;
+    }
+
+    public bool getIsMaster()
+    {
+        return isMaster;
+    }
+
+    public float getMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public bool getForward()
+    {
+        return forward;
+    }
+
+    public bool getBackward()
+    {
+        return backward;
+    }
+
+    public bool getLeft()
+    {
+        return left;
+    }
+
+    public bool getRight()
+    {
+        return right;
     }
 }

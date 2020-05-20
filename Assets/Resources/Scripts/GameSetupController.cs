@@ -126,22 +126,22 @@ public class GameSetupController : MonoBehaviour
                 players = GameObject.FindGameObjectsWithTag("Player");
                 Debug.Log(players.Length);
 
-                foreach (GameObject player in players) {
-
-                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 1) {
-                        team1Attachments[1].target = player.transform;
-                    }
-                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 2)
+                foreach (GameObject player in players)
+                {
+                    switch (player.GetComponent<Player>().getOrder())
                     {
-                        team1Attachments[0].target = player.transform;
-                    }
-                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 3)
-                    {
-                        team2Attachments[0].target = player.transform;
-                    }
-                    if (player.GetComponent<PhotonView>().Owner.ActorNumber == 4)
-                    {
-                        team2Attachments[1].target = player.transform;
+                        case Player.PlayerOrder.Player1:
+                            team1Attachments[1].target = player.transform;
+                            break;
+                        case Player.PlayerOrder.Player2:
+                            team1Attachments[0].target = player.transform;
+                            break;
+                        case Player.PlayerOrder.Player3:
+                            team2Attachments[0].target = player.transform;
+                            break;
+                        case Player.PlayerOrder.Player4:
+                            team2Attachments[1].target = player.transform;
+                            break;
                     }
                 }
                team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;

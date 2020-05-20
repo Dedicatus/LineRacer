@@ -8,11 +8,6 @@ public class RemotePlayerController : MonoBehaviour
     [SerializeField] GameObject[] playerList;
     [SerializeField] GameObject[] remotePlayerList;
 
-    [SerializeField] GameObject player1;
-    [SerializeField] GameObject player2;
-    [SerializeField] GameObject player3;
-    [SerializeField] GameObject player4;
-
     [SerializeField] GameObject remotePlayer1;
     [SerializeField] GameObject remotePlayer2;
     [SerializeField] GameObject remotePlayer3;
@@ -30,7 +25,7 @@ public class RemotePlayerController : MonoBehaviour
 
     private void assignRemotePlayer()
     {
-        if (player1 == null || player2 == null || player3 == null || player4 == null)
+        if (remotePlayer1 == null || remotePlayer2 == null || remotePlayer3 == null || remotePlayer4 == null)
         {
             remotePlayerList = GameObject.FindGameObjectsWithTag("RemotePlayer");
 

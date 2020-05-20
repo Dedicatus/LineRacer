@@ -126,6 +126,7 @@ public class GameSetupController : MonoBehaviour
                 players = GameObject.FindGameObjectsWithTag("Player");
                 Debug.Log(players.Length);
                 
+                /*
                 foreach (GameObject player in players)
                 {
                     switch (player.GetComponent<Player>().getOrder())
@@ -145,6 +146,7 @@ public class GameSetupController : MonoBehaviour
                     }
                 }
                 team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
+                */
                 
 
                 //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)

@@ -88,3 +88,9 @@ Assets/Resources/Blueprints/Scripts/RopeAndRod/DataStructures/Path/DataChannels.
 Assets/Resources/Blueprints/Scripts/RopeAndRod/DataStructures/Path/Interpolators.meta
 Assets/Resources/Blueprints/Scripts/RopeAndRod/Rendering.meta
 Assets/Resources/Blueprints/Scripts/RopeAndRod/Utils.meta
+Assets/Obi/Samples/RopeAndRod/SampleResources/Blueprints/Straight short rope.asset
+Assets/Resources/Blueprints/Scripts/Common/Blueprints/Constraints.meta
+Assets/Resources/Blueprints/Scripts/Common/Collisions/ColliderTrackers.meta
+Assets/Resources/Blueprints/Scripts/Common/DataStructures.meta
+Assets/Resources/Blueprints/Scripts/Common/Utils.meta
+Assets/Resources/Blueprints/Scripts/RopeAndRod/DataStructures/Path.meta

@@ -46,31 +46,40 @@ public class GameSetupController : MonoBehaviour
     {
         team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
         team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
-        foreach (Transform sheepSpawnPoint in sheepSpawnPoints)
-        {
-            if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
-        }
+        //foreach (Transform sheepSpawnPoint in sheepSpawnPoints)
+        //{
+        //    if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
+        //}
     }
 
     private void CreatePlayer()
     {
 
         Debug.Log("Creating Player");
-        switch (PhotonNetwork.LocalPlayer.ActorNumber) {
-            case 1:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1"), spawnPoints[0].position, Quaternion.identity);
-                break;
-            case 2:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2"), spawnPoints[1].position, spawnPoints[1].rotation);
-                break;
-            case 3:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3"), spawnPoints[2].position, Quaternion.identity);
-                break;
-            case 4:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4"), spawnPoints[3].position, spawnPoints[3].rotation);
-                break;
+        if (PhotonNetwork.IsMasterClient)
+        {
 
         }
+        else
+        {
+            switch (PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                case 1:
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1"), spawnPoints[0].position, Quaternion.identity);
+                    break;
+                case 2:
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2"), spawnPoints[1].position, spawnPoints[1].rotation);
+                    break;
+                case 3:
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3"), spawnPoints[2].position, Quaternion.identity);
+                    break;
+                case 4:
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4"), spawnPoints[3].position, spawnPoints[3].rotation);
+                    break;
+
+            }
+        }
+        
 
         
     }

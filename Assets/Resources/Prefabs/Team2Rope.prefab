@@ -692,4 +692,4 @@ MonoBehaviour:
   solvers:
   - {fileID: 369706946919653966}
   substepUnityPhysics: 0
-  substeps: 1
+  substeps: 5

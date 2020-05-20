@@ -325,7 +325,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7798799213639058757}
-  - {fileID: 3542152030595417917}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -356,15 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1304227dcdef745b3c22fb67cb8a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  order: 1
   moveSpeed: 10
   turnSpeed: 250
-  isMaster: 0
-  forward: 0
-  backward: 0
-  left: 0
-  right: 0
 --- !u!1 &4177319038278792786
 GameObject:
   m_ObjectHideFlags: 0

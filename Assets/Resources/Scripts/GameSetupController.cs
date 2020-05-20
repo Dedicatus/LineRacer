@@ -58,23 +58,26 @@ public class GameSetupController : MonoBehaviour
         Debug.Log("Creating Player");
         if (PhotonNetwork.IsMasterClient)
         {
-
+            PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1"), spawnPoints[0].position, Quaternion.identity);
+            PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2"), spawnPoints[1].position, spawnPoints[1].rotation);
+            PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3"), spawnPoints[2].position, Quaternion.identity);
+            PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4"), spawnPoints[3].position, spawnPoints[3].rotation);
         }
         else
         {
             switch (PhotonNetwork.LocalPlayer.ActorNumber)
             {
                 case 1:
-                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1"), spawnPoints[0].position, Quaternion.identity);
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1Remote"), spawnPoints[0].position, Quaternion.identity);
                     break;
                 case 2:
-                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2"), spawnPoints[1].position, spawnPoints[1].rotation);
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2Remote"), spawnPoints[1].position, spawnPoints[1].rotation);
                     break;
                 case 3:
-                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3"), spawnPoints[2].position, Quaternion.identity);
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3Remote"), spawnPoints[2].position, Quaternion.identity);
                     break;
                 case 4:
-                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4"), spawnPoints[3].position, spawnPoints[3].rotation);
+                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4Remote"), spawnPoints[3].position, spawnPoints[3].rotation);
                     break;
 
             }
@@ -119,7 +122,6 @@ public class GameSetupController : MonoBehaviour
                 if (GameObject.FindGameObjectsWithTag("Player").Length == roomSize)
                 {
                     allCreated = true;
-                   
                 }
             }
             else

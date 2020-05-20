@@ -167,7 +167,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 6142021667250812089}
-  - {fileID: 5488156516421886361}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -198,15 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1304227dcdef745b3c22fb67cb8a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
-  order: 2
   moveSpeed: 5
   turnSpeed: 250
-  isMaster: 0
-  forward: 0
-  backward: 0
-  left: 0
-  right: 0
 --- !u!1001 &8554395511154636733
 PrefabInstance:
   m_ObjectHideFlags: 0

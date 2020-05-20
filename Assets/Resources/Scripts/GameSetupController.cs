@@ -92,6 +92,7 @@ public class GameSetupController : MonoBehaviour
                 team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-18f, 1.15f, -5.5f), Quaternion.identity);
                 team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
                 break;
+            /*
             case 2:
                 team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-18f, 1.15f, -5.5f), Quaternion.identity);
                 team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
@@ -104,6 +105,7 @@ public class GameSetupController : MonoBehaviour
                 team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
                 team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-18f, 1.15f, -5.5f), Quaternion.identity);
                 break;
+                */
 
         }
     }
@@ -126,7 +128,7 @@ public class GameSetupController : MonoBehaviour
                 players = GameObject.FindGameObjectsWithTag("Player");
                 Debug.Log(players.Length);
                 
-                /*
+                
                 foreach (GameObject player in players)
                 {
                     switch (player.GetComponent<Player>().getOrder())
@@ -145,8 +147,9 @@ public class GameSetupController : MonoBehaviour
                             break;
                     }
                 }
+
                 team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
-                */
+                
                 
 
                 //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)

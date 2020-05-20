@@ -39,6 +39,7 @@ MonoBehaviour:
   - PlayerCreatedCount
   - RPC_AddPlayerCount
   - RPC_SetPlayerCreatedCount
+  - RPC_PlayAudio
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

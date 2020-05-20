@@ -7,7 +7,7 @@ public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
 {
     public enum PlayerOrder { Player1, Player2, Player3, Player4 };
 
-    private PlayerOrder order;
+    [SerializeField] private PlayerOrder order;
 
     [Header("RemoteDebug")]
     [SerializeField] private bool forward;

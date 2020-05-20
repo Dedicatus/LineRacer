@@ -148,7 +148,7 @@ public class GameSetupController : MonoBehaviour
                     }
                 }
 
-                team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
+                //team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
                 
                 
 

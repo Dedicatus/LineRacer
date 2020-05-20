@@ -1003,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 654806696231263326, guid: dfbcae974e845684bb8e316b0ab48865,
         type: 3}
       propertyPath: multiplayerSceneIndex
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 654806696231263326, guid: dfbcae974e845684bb8e316b0ab48865,
         type: 3}

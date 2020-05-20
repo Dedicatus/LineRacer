@@ -67,13 +67,13 @@ public class GameSetupController : MonoBehaviour
         switch (PhotonNetwork.LocalPlayer.ActorNumber)
         {
             case 1:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1Remote"), spawnPoints[0].position, Quaternion.identity);
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1Remote"), spawnPoints[0].position, spawnPoints[0].rotation);
                 break;
             case 2:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2Remote"), spawnPoints[1].position, spawnPoints[1].rotation);
                 break;
             case 3:
-                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3Remote"), spawnPoints[2].position, Quaternion.identity);
+                PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3Remote"), spawnPoints[2].position, spawnPoints[2].rotation);
                 break;
             case 4:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4Remote"), spawnPoints[3].position, spawnPoints[3].rotation);

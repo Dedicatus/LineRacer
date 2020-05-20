@@ -59,7 +59,7 @@ public class RemotePlayerController : MonoBehaviour
 
         assignRemotePlayer();
 
-        if (remotePlayer1 == null || remotePlayer2 == null || remotePlayer3 == null || remotePlayer4 == null) { return}
+        if (remotePlayer1 == null || remotePlayer2 == null || remotePlayer3 == null || remotePlayer4 == null) { return; }
 
         foreach (GameObject player in playerList)
         {

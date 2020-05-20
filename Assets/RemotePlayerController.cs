@@ -24,27 +24,35 @@ public class RemotePlayerController : MonoBehaviour
         if (!PhotonNetwork.IsMasterClient || PhotonNetwork.OfflineMode) { return; }
 
         playerList = GameObject.FindGameObjectsWithTag("Player");
-        remotePlayerList = GameObject.FindGameObjectsWithTag("RemotePlayer");
 
+        assignRemotePlayer();
+    }
 
-        foreach (GameObject remotePlayer in remotePlayerList)
+    private void assignRemotePlayer()
+    {
+        if (player1 == null || player2 == null || player3 == null || player4 == null)
         {
-            RemotePlayer myRemotePlayerScript = remotePlayer.GetComponent<RemotePlayer>();
+            remotePlayerList = GameObject.FindGameObjectsWithTag("RemotePlayer");
 
-            switch (myRemotePlayerScript.getOrder())
+            foreach (GameObject remotePlayer in remotePlayerList)
             {
-                case RemotePlayer.PlayerOrder.Player1:
-                    remotePlayer1 = remotePlayer;
-                    break;
-                case RemotePlayer.PlayerOrder.Player2:
-                    remotePlayer2 = remotePlayer;
-                    break;
-                case RemotePlayer.PlayerOrder.Player3:
-                    remotePlayer3 = remotePlayer;
-                    break;
-                case RemotePlayer.PlayerOrder.Player4:
-                    remotePlayer4 = remotePlayer;
-                    break;
+                RemotePlayer myRemotePlayerScript = remotePlayer.GetComponent<RemotePlayer>();
+
+                switch (myRemotePlayerScript.getOrder())
+                {
+                    case RemotePlayer.PlayerOrder.Player1:
+                        remotePlayer1 = remotePlayer;
+                        break;
+                    case RemotePlayer.PlayerOrder.Player2:
+                        remotePlayer2 = remotePlayer;
+                        break;
+                    case RemotePlayer.PlayerOrder.Player3:
+                        remotePlayer3 = remotePlayer;
+                        break;
+                    case RemotePlayer.PlayerOrder.Player4:
+                        remotePlayer4 = remotePlayer;
+                        break;
+                }
             }
         }
     }
@@ -53,6 +61,8 @@ public class RemotePlayerController : MonoBehaviour
     void FixedUpdate()
     {
         if (!PhotonNetwork.IsMasterClient || PhotonNetwork.OfflineMode) { return; }
+
+        assignRemotePlayer();
 
         foreach (GameObject player in playerList)
         {

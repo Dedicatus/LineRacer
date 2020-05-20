@@ -30,7 +30,7 @@ public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (GameObject.FindWithTag("GameController").GetComponent<GameController>().getCurState() == GameController.GameState.Playing)
         {

@@ -45,6 +45,8 @@ public class Trap : MonoBehaviour
         
         if (other.gameObject.tag == "Player" && isActive) {
             isActive = false;
+            other.gameObject.GetComponent<Player>().isStun = true;
+            other.gameObject.GetComponent<Player>().stunTime = stunTime;
             curPlayer = other.gameObject;
         }
     }

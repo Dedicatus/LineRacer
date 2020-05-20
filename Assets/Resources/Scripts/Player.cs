@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviourPunCallbacks
 {
+    [Header("StunDebug")]
+    [SerializeField]
+    private float stunTimer;
+    [SerializeField]
+    public float stunTime;
+    public bool isStun = false;
+    
+
     public enum PlayerState { IDLING, MOVING, DASHING };
     public enum PlayerOrder { Player1, Player2, Player3, Player4 };
     [SerializeField] private PlayerState state;
@@ -23,6 +31,7 @@ public class Player : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        stunTimer = 0;
         state = PlayerState.IDLING;
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
@@ -34,7 +43,17 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (myPhotonView.IsMine)
         {
-            inputHandler();
+            if (!isStun)
+            {
+                inputHandler();
+            }
+            else {
+                stunTimer += Time.deltaTime;
+                if (stunTime <= stunTimer) {
+                    isStun = false;
+                    stunTimer = 0;
+                }
+            }
         }
   
     }

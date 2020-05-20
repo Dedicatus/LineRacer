@@ -16,11 +16,13 @@ public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private bool right;
 
     private Player myPlayer;
+    private PhotonView myPhotonView;
 
     // Start is called before the first frame update
     void Start()
     {
         myPlayer = gameObject.GetComponent<Player>();
+        myPhotonView = gameObject.GetComponent<PhotonView>();
         forward = false;
         backward = false;
         left = false;
@@ -32,7 +34,10 @@ public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (GameObject.FindWithTag("GameController").GetComponent<GameController>().getCurState() == GameController.GameState.Playing)
         {
-            remoteInputHandler();
+            if (myPhotonView.IsMine)
+            {
+                remoteInputHandler();
+            }
         }
     }
 

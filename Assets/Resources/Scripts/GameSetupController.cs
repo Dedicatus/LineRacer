@@ -38,7 +38,7 @@ public class GameSetupController : MonoBehaviour
         initialized = false;
         allCreated = false;
         CreatePlayer();
-        CreateRope();
+        //CreateRope();
 
     }
 
@@ -125,7 +125,7 @@ public class GameSetupController : MonoBehaviour
                 //ASSIGN SCENE
                 players = GameObject.FindGameObjectsWithTag("Player");
                 Debug.Log(players.Length);
-
+                /*
                 foreach (GameObject player in players)
                 {
                     switch (player.GetComponent<Player>().getOrder())
@@ -144,7 +144,9 @@ public class GameSetupController : MonoBehaviour
                             break;
                     }
                 }
-               team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
+                team1Rope.transform.position = (players[0].gameObject.transform.position + players[1].gameObject.transform.position) / 2;
+                */
+
                 //if (PhotonNetwork.LocalPlayer.ActorNumber == 1)
                 //{
                 //    attachments[0].target = players[0].transform;

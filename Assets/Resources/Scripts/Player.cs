@@ -7,8 +7,8 @@ public class Player : MonoBehaviourPunCallbacks
 {
     public enum PlayerState { IDLING, MOVING, DASHING };
     public enum PlayerOrder { Player1, Player2, Player3, Player4 };
-    private PlayerState state;
-    private PlayerOrder order;
+    [SerializeField] private PlayerState state;
+    [SerializeField] private PlayerOrder order;
 
     private PhotonView myPhotonView;
 

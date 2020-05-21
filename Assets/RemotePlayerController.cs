@@ -87,7 +87,7 @@ public class RemotePlayerController : MonoBehaviour
                     return;
             }
 
-            if (myPlayerScript.isStun) { break; }
+            if (myPlayerScript.isStun) { continue; }
             if (myRemotePlayerScript.getForward() && myRemotePlayerScript.getRight())
             {
                 player.transform.rotation = Quaternion.Euler(0, 45, 0);

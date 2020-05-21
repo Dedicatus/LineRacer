@@ -63,7 +63,7 @@ public class RemotePlayerController : MonoBehaviour
 
         foreach (GameObject player in playerList)
         {
-            if (player.GetComponent<Player>().isStun) { return; }
+            if (player.GetComponent<Player>().isStun) { break; }
             Player myPlayerScript = player.GetComponent<Player>();
             Rigidbody myPlayerRigidbody = player.GetComponent<Rigidbody>();
 

@@ -43,16 +43,14 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (myPhotonView.IsMine)
         {
-            if (!isStun)
-            {
                 inputHandler();
-            }
-            else {
-                stunTimer += Time.deltaTime;
-                if (stunTime <= stunTimer) {
-                    isStun = false;
-                    stunTimer = 0;
-                }
+        }
+
+        if (isStun) {
+            stunTimer += Time.deltaTime;
+            if (stunTimer >= stunTime) {
+                isStun = false;
+                stunTimer = 0;
             }
         }
   

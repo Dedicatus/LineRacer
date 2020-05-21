@@ -9,13 +9,14 @@ public class SetEndTest : MonoBehaviour
     public GameObject rope;
     public Transform pin1;
     public Transform pin2;
-
+  
     private ObiParticleAttachment[] particleAttachments; 
     // Start is called before the first frame update
     void Start()
     {
-       rope =  GameObject.Instantiate(rope);
-        rope.transform.position =  (pin1.position + pin2.position)/2;
+      
+        rope =  GameObject.Instantiate(rope, (pin1.position + pin2.position) / 2, Quaternion.identity);
+        
         particleAttachments = rope.GetComponentsInChildren<ObiParticleAttachment>();
         particleAttachments[0].target = pin1;
         particleAttachments[1].target = pin2;

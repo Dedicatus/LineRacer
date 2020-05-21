@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
@@ -20,6 +21,24 @@ public class AudioController : MonoBehaviour
     public FMOD.Studio.EventInstance playScore;
     public FMOD.Studio.EventInstance playSheep;
 
+    // volume control
+    FMOD.Studio.Bus SFXBus;
+    [SerializeField]
+    [Range(-25f, 10f)]
+    private float sfxBusVolume;
+    private float sfxVol;
+
+    FMOD.Studio.Bus MusicBus;
+    [SerializeField]
+    [Range(-25f, 10f)]
+    private float musicBusVolume;
+    private float musicVol;
+
+    private GameObject setting;
+
+    public Slider sliderSFX;
+    public Slider sliderMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +54,38 @@ public class AudioController : MonoBehaviour
         playFirstSheep = FMODUnity.RuntimeManager.CreateInstance("event:/firstsheep");
         playScore = FMODUnity.RuntimeManager.CreateInstance("event:/score");
         playSheep = FMODUnity.RuntimeManager.CreateInstance("event:/sheep");
+
+        setting = GameObject.Find("layout");
+        MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/music");
+        SFXBus = FMODUnity.RuntimeManager.GetBus("bus:/sfx");
+        sliderSFX = GameObject.Find("SFXSlider").GetComponent<Slider>();
+        sliderMusic = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        setting.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         TestPlay();
-       // FooPlay();
+        // FooPlay();
+
+        changeSFXVol();
+        changeMusicVol();
+    }
+
+    public void changeSFXVol()
+    {
+        sfxBusVolume = sliderSFX.value;
+        sfxVol = Mathf.Pow(10.0f, sfxBusVolume / 20f);
+        SFXBus.setVolume(sfxVol);
+        //Debug.Log(sliderSFX.value);
+    }
+    public void changeMusicVol()
+    {
+        musicBusVolume = sliderMusic.value;
+        musicVol = Mathf.Pow(10.0f, musicBusVolume / 20f);
+        MusicBus.setVolume(musicVol);
+        // Debug.Log(sliderMusic.value);
     }
 
     [PunRPC]

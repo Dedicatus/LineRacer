@@ -1133,6 +1133,10 @@ MonoBehaviour:
     type: 3}
   ropePrefabTeam2: {fileID: 369706946919653968, guid: 7bcbf460f8b3b5a45a6d4e664618fb5a,
     type: 3}
+  fakeRopePrefabTeam1: {fileID: 2728600198174440816, guid: bb08f2601e19f88409b883fc587c7a65,
+    type: 3}
+  fakeRopePrefabTeam2: {fileID: 6867349081842996777, guid: 1be0934ee83b054439284fb832830481,
+    type: 3}
   spawnPoints:
   - {fileID: 308123444}
   - {fileID: 1467382798}

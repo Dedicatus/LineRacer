@@ -60,8 +60,16 @@ public class GameController : MonoBehaviour
     {
         if (myState == GameState.Playing)
         {
-            myState = GameState.Result;
-            gameTimer = gameTime;
+            if (team1Score == team2Score)
+            {
+                myInGameUIController.showOvertime();
+            }
+            else
+            {
+                myState = GameState.Result;
+                if (team1Score > team2Score) { myInGameUIController.showResult(1); }
+                else { myInGameUIController.showResult(2); }
+            }
         }
     }
 

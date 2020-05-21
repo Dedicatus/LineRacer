@@ -51,7 +51,7 @@ public class Trap : MonoBehaviour
             other.gameObject.GetComponent<Player>().stunTime = stunTime;
             curPlayer = other.gameObject;
             myAudioController.playDizzy.start();
-            myAudioController.playDizzy.release();
+           // myAudioController.playDizzy.release();
 
         }
     }

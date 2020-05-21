@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
         }
 
         myAudioController.playScore.start();
-        myAudioController.playScore.release();
+      //  myAudioController.playScore.release();
         
         switch (team)
         {

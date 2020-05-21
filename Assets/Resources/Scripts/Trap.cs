@@ -16,11 +16,13 @@ public class Trap : MonoBehaviour
     private bool isActive;
 
     private GameObject curPlayer;
-
+    private AudioController myAudioController;
 
     // Start is called before the first frame update
     void Start()
     {
+        myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();
+
         isCoolDown = false;
         isActive = true;
         coolDownTimer = 0;
@@ -48,6 +50,9 @@ public class Trap : MonoBehaviour
             other.gameObject.GetComponent<Player>().isStun = true;
             other.gameObject.GetComponent<Player>().stunTime = stunTime;
             curPlayer = other.gameObject;
+            myAudioController.playDizzy.start();
+            myAudioController.playDizzy.release();
+
         }
     }
 

@@ -19,11 +19,14 @@ public class GameController : MonoBehaviour
     [SerializeField] float gameTimer;
 
     private InGameUIController myInGameUIController;
+    private AudioController myAudioController;
 
     // Start is called before the first frame update
     void Start()
     {
         myInGameUIController = GameObject.FindWithTag("System").transform.Find("InGameUIController").GetComponent<InGameUIController>();
+        myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();
+
         myState = GameState.Preparation;
         team1Score = 0;
         team2Score = 0;
@@ -67,8 +70,16 @@ public class GameController : MonoBehaviour
             else
             {
                 myState = GameState.Result;
-                if (team1Score > team2Score) { myInGameUIController.showResult(1); }
-                else { myInGameUIController.showResult(2); }
+                if (team1Score > team2Score) { 
+                    
+                    myInGameUIController.showResult(1);
+                    myAudioController.PlayEndSound(1);
+
+                }
+                else { 
+                    myInGameUIController.showResult(2);
+                    myAudioController.PlayEndSound(2);
+                }
             }
         }
     }
@@ -85,11 +96,20 @@ public class GameController : MonoBehaviour
 
     public void addScore(Team team, int score)
     {
+        if (team1Score == 0 && team2Score == 0)
+        {
+            myAudioController.playFirstSheep.start();
+            myAudioController.playFirstSheep.release();
+        }
+
+        myAudioController.playScore.start();
+        myAudioController.playScore.release();
+        
         switch (team)
         {
             case Team.Team1:
                 team1Score += score;
-                myInGameUIController.updateScore(team, team1Score);
+                myInGameUIController.updateScore(team, team1Score);              
                 break;
             case Team.Team2:
                 team2Score += score;

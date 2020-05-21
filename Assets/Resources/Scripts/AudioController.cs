@@ -15,10 +15,10 @@ public class AudioController : MonoBehaviour
     FMOD.Studio.EventInstance playMusic;
     FMOD.Studio.EventInstance playWin;
     FMOD.Studio.EventInstance playLose;
-    FMOD.Studio.EventInstance playDizzy;
-    FMOD.Studio.EventInstance playFirstSheep;
-    FMOD.Studio.EventInstance playScore;
-    FMOD.Studio.EventInstance playSheep;
+    public FMOD.Studio.EventInstance playDizzy;
+    public FMOD.Studio.EventInstance playFirstSheep;
+    public FMOD.Studio.EventInstance playScore;
+    public FMOD.Studio.EventInstance playSheep;
 
     // Start is called before the first frame update
     void Start()
@@ -57,11 +57,55 @@ public class AudioController : MonoBehaviour
         }
     }
 
-    //void FooPlay() {
-    //    if (Input.GetKeyDown(KeyCode.P))
-    //    {
-    //        audioSource.clip = audioClips[0];
-    //        audioSource.Play();
-    //    }
-    //}
+    public void PlayEndSound(int teamNum) {
+        switch (PhotonNetwork.LocalPlayer.ActorNumber) {
+            case 1:
+                if (teamNum == 1) {
+                    playWin.start();
+                    playWin.release();
+                }
+                else{
+                    playLose.start();
+                    playLose.release();
+                }
+                break;
+            case 2:
+                if (teamNum == 1)
+                {
+                    playWin.start();
+                    playWin.release();
+                }
+                else
+                {
+                    playLose.start();
+                    playLose.release();
+                }
+                break;
+            case 3:
+                if (teamNum == 2)
+                {
+                    playWin.start();
+                    playWin.release();
+                }
+                else
+                {
+                    playLose.start();
+                    playLose.release();
+                }
+                break;
+            case 4:
+                if (teamNum == 2)
+                {
+                    playWin.start();
+                    playWin.release();
+                }
+                else
+                {
+                    playLose.start();
+                    playLose.release();
+                }
+                break;
+
+        }
+    }
 }

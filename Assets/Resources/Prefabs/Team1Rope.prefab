@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2099873528204812972}
   - component: {fileID: 2099873528204812963}
   - component: {fileID: 2099873528204812962}
-  - component: {fileID: 2099873528204812961}
   - component: {fileID: 2099873528204812960}
+  - component: {fileID: 2099873528204812961}
   m_Layer: 10
   m_Name: Obi Rope
   m_TagString: Untagged
@@ -233,31 +233,6 @@ MonoBehaviour:
   normalizeV: 1
   section: {fileID: 11400000, guid: a0bc36a59515f413e90e10895929c938, type: 2}
   thicknessScale: 0.8
---- !u!114 &2099873528204812961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099873528204812966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d03c9194b7ab4aaba4dfa5afec22c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actor: {fileID: 2099873528204812972}
-  m_Target: {fileID: 0}
-  m_ParticleGroup: {fileID: 8673311686603544650, guid: ca9e262f11fb246cbb6d2177bacb27ea,
-    type: 2}
-  m_AttachmentType: 1
-  m_ConstrainOrientation: 0
-  m_Compliance: 0
-  m_BreakThreshold: Infinity
-  m_SolverIndices: 12000000
-  m_PositionOffsets:
-  - {x: 0.00000020027159, y: 0, z: -1.7534527}
-  m_OrientationOffsets:
-  - {x: 0, y: 0, z: 0, w: 0}
 --- !u!114 &2099873528204812960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +256,31 @@ MonoBehaviour:
   m_SolverIndices: 00000000
   m_PositionOffsets:
   - {x: 0.00000011920929, y: 0, z: 1.8210002}
+  m_OrientationOffsets:
+  - {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2099873528204812961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099873528204812966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d03c9194b7ab4aaba4dfa5afec22c69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actor: {fileID: 2099873528204812972}
+  m_Target: {fileID: 0}
+  m_ParticleGroup: {fileID: 8673311686603544650, guid: ca9e262f11fb246cbb6d2177bacb27ea,
+    type: 2}
+  m_AttachmentType: 1
+  m_ConstrainOrientation: 0
+  m_Compliance: 0
+  m_BreakThreshold: Infinity
+  m_SolverIndices: 12000000
+  m_PositionOffsets:
+  - {x: 0.00000020027159, y: 0, z: -1.7534527}
   m_OrientationOffsets:
   - {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &2099873528244038651

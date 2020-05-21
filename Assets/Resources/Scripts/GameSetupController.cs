@@ -127,16 +127,16 @@ public class GameSetupController : MonoBehaviour
                     switch (player.GetComponent<Player>().getOrder())
                     {
                         case Player.PlayerOrder.Player1:
-                            team1Attachments[1].target = player.transform;
-                            break;
-                        case Player.PlayerOrder.Player2:
                             team1Attachments[0].target = player.transform;
                             break;
+                        case Player.PlayerOrder.Player2:
+                            team1Attachments[1].target = player.transform;
+                            break;
                         case Player.PlayerOrder.Player3:
-                            team2Attachments[1].target = player.transform;
+                            team2Attachments[0].target = player.transform;
                             break;
                         case Player.PlayerOrder.Player4:
-                            team2Attachments[0].target = player.transform;
+                            team2Attachments[1].target = player.transform;
                             break;
                     }
                 }

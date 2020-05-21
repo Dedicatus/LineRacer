@@ -1491,8 +1491,8 @@ MonoBehaviour:
   - {fileID: 8167809789195241854}
   path:
     m_Names:
-    - end
     - start
+    - end
     m_Points:
       data:
       - tangentMode: 0
@@ -1716,7 +1716,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
-  m_Name: end
+  m_Name: start
   m_EditorClassIdentifier: 
   particleIndices: 00000000
   m_Blueprint: {fileID: 11400000}
@@ -1730,7 +1730,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
-  m_Name: start
+  m_Name: end
   m_EditorClassIdentifier: 
   particleIndices: 24000000
   m_Blueprint: {fileID: 11400000}

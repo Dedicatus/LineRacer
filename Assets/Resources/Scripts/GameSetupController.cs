@@ -133,10 +133,10 @@ public class GameSetupController : MonoBehaviour
                             team1Attachments[0].target = player.transform;
                             break;
                         case Player.PlayerOrder.Player3:
-                            team2Attachments[0].target = player.transform;
+                            team2Attachments[1].target = player.transform;
                             break;
                         case Player.PlayerOrder.Player4:
-                            team2Attachments[1].target = player.transform;
+                            team2Attachments[0].target = player.transform;
                             break;
                     }
                 }

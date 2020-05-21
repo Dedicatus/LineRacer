@@ -12,7 +12,7 @@ public class AudioController : MonoBehaviour
 
     [FMODUnity.EventRef]
     FMOD.Studio.EventInstance playAmbience;
-    FMOD.Studio.EventInstance playMusic;
+    public FMOD.Studio.EventInstance playMusic;
     FMOD.Studio.EventInstance playWin;
     FMOD.Studio.EventInstance playLose;
     public FMOD.Studio.EventInstance playDizzy;

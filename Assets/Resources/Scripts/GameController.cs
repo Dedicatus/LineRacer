@@ -63,6 +63,9 @@ public class GameController : MonoBehaviour
     {
         if (myState == GameState.Playing)
         {
+            myAudioController.playMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            myAudioController.playMusic.release();
+
             if (team1Score == team2Score)
             {
                 myInGameUIController.showOvertime();

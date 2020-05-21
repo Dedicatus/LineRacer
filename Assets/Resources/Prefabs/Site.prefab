@@ -4524,7 +4524,7 @@ GameObject:
   - component: {fileID: 2610760224278685362}
   m_Layer: 0
   m_Name: Hay_Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8530,7 +8530,7 @@ GameObject:
   - component: {fileID: 4846293015848003375}
   m_Layer: 0
   m_Name: Hay_Cylinder
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9094,7 +9094,7 @@ GameObject:
   - component: {fileID: 4981027848193345081}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14956,7 +14956,7 @@ GameObject:
   - component: {fileID: 7476460077552124536}
   m_Layer: 0
   m_Name: Fence
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15788,7 +15788,7 @@ GameObject:
   - component: {fileID: 6659148964840036195}
   m_Layer: 0
   m_Name: Site
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

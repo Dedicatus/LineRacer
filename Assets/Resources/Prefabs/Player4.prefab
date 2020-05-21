@@ -202,7 +202,7 @@ MonoBehaviour:
   isStun: 0
   state: 0
   order: 3
-  moveSpeed: 5
+  moveSpeed: 10
   turnSpeed: 250
 --- !u!1001 &7867979206992695298
 PrefabInstance:

@@ -63,7 +63,7 @@ public class RemotePlayerController : MonoBehaviour
 
         foreach (GameObject player in playerList)
         {
-            if (player.GetComponent<Player>().isStun) { break; }
+            
             Player myPlayerScript = player.GetComponent<Player>();
             Rigidbody myPlayerRigidbody = player.GetComponent<Rigidbody>();
 
@@ -87,7 +87,7 @@ public class RemotePlayerController : MonoBehaviour
                     return;
             }
 
-            
+            if (myPlayerScript.isStun) { break; }
             if (myRemotePlayerScript.getForward() && myRemotePlayerScript.getRight())
             {
                 player.transform.rotation = Quaternion.Euler(0, 45, 0);

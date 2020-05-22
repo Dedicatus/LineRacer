@@ -25,7 +25,7 @@ public class Trap : MonoBehaviour
     void Start()
     {
         myPhotonView = GetComponent<PhotonView>();
-        myPhotonView.ViewID = 10;
+        
         myAnimator = GetComponent<Animator>();
         originPosition = this.transform.position;
         myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();

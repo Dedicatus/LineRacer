@@ -228,7 +228,7 @@ MonoBehaviour:
   material: {fileID: 0}
   phase: 0
   thickness: 0
-  sourceCollider: {fileID: 0}
+  sourceCollider: {fileID: 1887372320232941545}
   accurateContacts: 0
   useDistanceFields: 0
   distanceField: {fileID: 0}
@@ -355,8 +355,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6428794116019115841}
   - component: {fileID: 8630680018050227048}
+  - component: {fileID: 3207133262599975887}
   m_Layer: 0
-  m_Name: Sheep
+  m_Name: SheepCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,6 +391,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1634567, y: 1.004569, z: 0.5371343}
   m_Center: {x: 0.49369702, y: 0.5934035, z: 0.11887179}
+--- !u!114 &3207133262599975887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029060478362068306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb520fef30aacc449e1cd8b425b079a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8534584327951375683
 GameObject:
   m_ObjectHideFlags: 0

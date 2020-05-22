@@ -21,9 +21,35 @@ public class Trap : MonoBehaviour
     private Vector3 originPosition;
     private Animator myAnimator;
     private PhotonView myPhotonView;
+    private GameObject[] players;
+    private GameObject player1;
+    private GameObject player2;
+    private GameObject player3;
+    private GameObject player4;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players) {
+            Player myPlayerScript = player.GetComponent<Player>();
+            switch (myPlayerScript.getOrder()) {
+                case Player.PlayerOrder.Player1:
+                    player1 = player;
+                    break;
+                case Player.PlayerOrder.Player2:
+                    player2 = player;
+                    break;
+                case Player.PlayerOrder.Player3:
+                    player3 = player;
+                    break;
+                case Player.PlayerOrder.Player4:
+                    player4 = player;
+                    break;
+
+            }
+        }
         myPhotonView = GetComponent<PhotonView>();
         
         myAnimator = GetComponent<Animator>();
@@ -71,7 +97,7 @@ public class Trap : MonoBehaviour
           
             if (other.gameObject == curPlayer && !isCoolDown)
             {
-            myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other.transform);
+                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other.transform.GetComponent<Player>().getOrder()); ;
 
             }
         }
@@ -79,11 +105,27 @@ public class Trap : MonoBehaviour
 
 
     [PunRPC]
-    public void RPC_PlayAnimation(int num, Transform transform) {
+    public void RPC_PlayAnimation(int num, int order) {
         if (num == 1)
         {
+            Vector3 p = new Vector3();
             Debug.Log("1111111111");
-            Vector3 p = transform.position;
+            switch (order) {
+                case 1:
+                     p = player1.transform.position;
+                    break;
+                case 2:
+                     p = player2.transform.position;
+                    break;
+                case 3:
+                     p = player3.transform.position;
+                    break;
+                case 4:
+                     p = player4.transform.position;
+                    break;
+
+            }
+            
             this.transform.position = new Vector3(p.x, originPosition.y, p.z);
             myAnimator.SetBool("isIdle", false);
             myAnimator.SetBool("isOpen", false);

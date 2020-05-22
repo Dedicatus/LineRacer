@@ -105,16 +105,17 @@ public class Trap : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
     
-        if (PhotonNetwork.IsMasterClient)
-        {
+        
+        
           
-            if (other.gameObject == curPlayer && !isCoolDown)
+        if (other.gameObject == curPlayer && !isCoolDown)
             {
+                if (!PhotonNetwork.IsMasterClient) { return; }
                 Debug.Log("3333333");
                 myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.All, 2, Translate(other.transform.GetComponent<Player>().getOrder())); ;
 
             }
-        }
+       
     }
 
     private int Translate(Player.PlayerOrder order) {

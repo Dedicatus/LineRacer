@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Trap : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        
+        if (!PhotonNetwork.isMasterClient) { return; }
         if (other.gameObject.tag == "Player" && isActive) {
             myAnimator.SetBool("isIdle", false);
             myAnimator.SetBool("isOpen", false);
@@ -67,6 +68,8 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
+        if (!PhotonNetwork.isMasterClient) { return; }
+
         if (other.gameObject == curPlayer && !isCoolDown) {
             myAnimator.SetBool("isClose", false);
             myAnimator.SetBool("isOpen", true);

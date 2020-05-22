@@ -74,7 +74,7 @@ public class Trap : MonoBehaviour
             if (other.gameObject == curPlayer && !isCoolDown)
             {
 
-                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other.transform);
+                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other);
 
 
                 isCoolDown = true;

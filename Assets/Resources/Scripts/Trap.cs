@@ -51,7 +51,7 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (!PhotonNetwork.IsMasterClient) { return; }
+        //if (!PhotonNetwork.IsMasterClient) { return; }
             if (other.gameObject.tag == "Player" && isActive)
             {
             myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 1, other);
@@ -69,8 +69,8 @@ public class Trap : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
 
-        if (PhotonNetwork.IsMasterClient)
-        {
+       // if (PhotonNetwork.IsMasterClient)
+       //{
             if (other.gameObject == curPlayer && !isCoolDown)
             {
 
@@ -79,7 +79,7 @@ public class Trap : MonoBehaviour
 
                 isCoolDown = true;
             }
-        }
+       // }
     }
 
 

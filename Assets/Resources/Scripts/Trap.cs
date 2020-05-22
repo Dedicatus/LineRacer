@@ -84,7 +84,7 @@ public class Trap : MonoBehaviour
             if (!PhotonNetwork.IsMasterClient) { return; }
             other.gameObject.GetComponent<Player>().isStun = true;
             other.gameObject.GetComponent<Player>().stunTime = stunTime;
-            myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 1, other.transform);
+            myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 1, Translate(other.transform.GetComponent<Player>().getOrder()));
       }
         
     }

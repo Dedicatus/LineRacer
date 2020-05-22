@@ -116,9 +116,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2190760717582388493}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2190760716080027801 stripped
+--- !u!114 &5323432125960569332 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1790203284, guid: 8584ca5eafa825848bc917078b53f61e,
+  m_CorrespondingSourceObject: {fileID: 6307155023023869177, guid: 8584ca5eafa825848bc917078b53f61e,
     type: 3}
   m_PrefabInstance: {fileID: 2190760717582388493}
   m_PrefabAsset: {fileID: 0}
@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2190760715816705370 stripped
+--- !u!114 &5251626847367820144 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2034389079, guid: 8584ca5eafa825848bc917078b53f61e,
+  m_CorrespondingSourceObject: {fileID: 6234850542630452861, guid: 8584ca5eafa825848bc917078b53f61e,
     type: 3}
   m_PrefabInstance: {fileID: 2190760717582388493}
   m_PrefabAsset: {fileID: 0}
@@ -147,6 +147,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4913122619063573636}
     m_Modifications:
+    - target: {fileID: 8788172214385118941, guid: fb4acb2fe767b154c91954a9b8a9122f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788172214385118941, guid: fb4acb2fe767b154c91954a9b8a9122f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.9
+      objectReference: {fileID: 0}
     - target: {fileID: 8788172215197123909, guid: fb4acb2fe767b154c91954a9b8a9122f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -207,6 +217,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SheepSpawnController
       objectReference: {fileID: 0}
+    - target: {fileID: 8788172215298765530, guid: fb4acb2fe767b154c91954a9b8a9122f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb4acb2fe767b154c91954a9b8a9122f, type: 3}
 --- !u!4 &5387370919487416080 stripped
@@ -222,6 +237,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4913122619063573636}
     m_Modifications:
+    - target: {fileID: 1017833821212592705, guid: 04285e21be0e1eb4ca4ccbf87115f9a2,
+        type: 3}
+      propertyPath: viewIdField
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1017833821212592706, guid: 04285e21be0e1eb4ca4ccbf87115f9a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -286,12 +306,12 @@ PrefabInstance:
         type: 3}
       propertyPath: sliderSFX
       value: 
-      objectReference: {fileID: 2190760716080027801}
+      objectReference: {fileID: 5323432125960569332}
     - target: {fileID: 1017833821212592707, guid: 04285e21be0e1eb4ca4ccbf87115f9a2,
         type: 3}
       propertyPath: sliderMusic
       value: 
-      objectReference: {fileID: 2190760715816705370}
+      objectReference: {fileID: 5251626847367820144}
     - target: {fileID: 1017833821212592766, guid: 04285e21be0e1eb4ca4ccbf87115f9a2,
         type: 3}
       propertyPath: m_Name
@@ -450,7 +470,7 @@ PrefabInstance:
     - target: {fileID: 1889007696838231339, guid: e831da54ff41b4441bb8397997be7c19,
         type: 3}
       propertyPath: gameTime
-      value: 30
+      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e831da54ff41b4441bb8397997be7c19, type: 3}

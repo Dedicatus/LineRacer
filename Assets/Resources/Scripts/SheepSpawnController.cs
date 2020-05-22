@@ -10,6 +10,7 @@ public class SheepSpawnController : MonoBehaviour
     [SerializeField] private Transform bottomRightPoint;
     [SerializeField] private float spawnCD = 15;
     [SerializeField] private int sheepNumber, goldenSheep;
+    [SerializeField] private int maxSheep = 4;
     float spawnTimer;
     // Start is called before the first frame update
     void Start()
@@ -40,7 +41,7 @@ public class SheepSpawnController : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if (sheepNumber == 0)
             spawnTimer = 0;
-        if (spawnTimer <= 0)
+        if (spawnTimer <= 0 && sheepNumber < maxSheep)
         {
             if (goldenSheep <= 0)
             {

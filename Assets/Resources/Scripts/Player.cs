@@ -25,6 +25,7 @@ public class Player : MonoBehaviourPunCallbacks
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private float turnSpeed = 250f;
+    [SerializeField] private float mass;
 
     float cameraRotationY;
 
@@ -36,6 +37,7 @@ public class Player : MonoBehaviourPunCallbacks
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.freezeRotation = true;
         myPhotonView = GetComponent<PhotonView>();
+        mass = gameObject.GetComponent<Rigidbody>().mass;
     }
 
     // Update is called once per frame
@@ -43,12 +45,16 @@ public class Player : MonoBehaviourPunCallbacks
     {
         if (myPhotonView.IsMine)
         {
-                inputHandler();
+            inputHandler();
         }
 
-        if (isStun) {
+        if (isStun)
+        {
             stunTimer += Time.deltaTime;
-            if (stunTimer >= stunTime) {
+            gameObject.GetComponent<Rigidbody>().mass = mass * 1000f;
+            if (stunTimer >= stunTime) 
+            {
+                gameObject.GetComponent<Rigidbody>().mass = mass / 1000f;
                 isStun = false;
                 stunTimer = 0;
             }

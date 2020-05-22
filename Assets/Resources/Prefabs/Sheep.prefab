@@ -274,6 +274,8 @@ MonoBehaviour:
   collected: 0
   isAutopilot: 0
   autopilotSpeed: 5
+  maxSpeed: 8
+  soundCD: 5
   target: {fileID: 0}
 --- !u!114 &684638780490268418
 MonoBehaviour:

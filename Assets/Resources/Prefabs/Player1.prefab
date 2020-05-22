@@ -204,6 +204,7 @@ MonoBehaviour:
   order: 0
   moveSpeed: 10
   turnSpeed: 250
+  mass: 0
 --- !u!1001 &8894061982140866015
 PrefabInstance:
   m_ObjectHideFlags: 0

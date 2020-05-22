@@ -1663,7 +1663,7 @@ MonoBehaviour:
   pingText: {fileID: 7741470782047630797}
   overtimeText: {fileID: 4836986311906236260}
   resultBackground: {fileID: 1713562516749009957}
-  returnButton: {fileID: 0}
+  returnButton: {fileID: 678834847893705441}
   team1Win: {fileID: 3366318783517460999}
   team2Win: {fileID: 3630726973036124625}
 --- !u!1 &6505959553389482176
@@ -1806,7 +1806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 29, y: 8.5}
+  m_AnchoredPosition: {x: 24.7, y: 8.5}
   m_SizeDelta: {x: -170.5, y: -52.199997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6505959553562388041
@@ -1842,7 +1842,7 @@ MonoBehaviour:
     m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 100
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

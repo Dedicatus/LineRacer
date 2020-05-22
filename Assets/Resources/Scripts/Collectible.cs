@@ -72,8 +72,7 @@ public class Collectible : MonoBehaviour
 
     void makesound()
     {
-        myAudioController.playSheep.start();
-        myAudioController.playSheep.release();
+        myAudioController.playSheep.start();       
         Debug.Log("mie~");
     }
 

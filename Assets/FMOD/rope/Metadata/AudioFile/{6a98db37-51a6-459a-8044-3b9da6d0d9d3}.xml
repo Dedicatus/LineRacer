@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{6a98db37-51a6-459a-8044-3b9da6d0d9d3}">
+		<property name="assetPath">
+			<value>megasheep.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3af91427-80e6-4a19-aade-e701cf7be0d7}</destination>
+		</relationship>
+	</object>
+</objects>

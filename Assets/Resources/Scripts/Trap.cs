@@ -59,7 +59,7 @@ public class Trap : MonoBehaviour
            // myAnimator.SetBool("isOpen", false);
            // myAnimator.SetBool("isClose", true);
             Vector3 p = other.transform.position;
-            this.transform.position = new Vector3(p.x, originPosition.y, p.z);
+            //this.transform.position = new Vector3(p.x, originPosition.y, p.z);
             myAudioController.playDizzy.start();
             isActive = false;
                 other.gameObject.GetComponent<Player>().isStun = true;
@@ -82,7 +82,7 @@ public class Trap : MonoBehaviour
 
             //myAnimator.SetBool("isClose", false);
            // myAnimator.SetBool("isOpen", true);
-            this.transform.position = originPosition;
+            //this.transform.position = originPosition;
 
 
             isCoolDown = true;

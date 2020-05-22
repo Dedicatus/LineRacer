@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3246658187113087099}
   - component: {fileID: 3231933455968700423}
   - component: {fileID: 1329871202617774717}
+  - component: {fileID: 1559356179557556811}
   m_Layer: 0
   m_Name: East
   m_TagString: Ground
@@ -126,6 +127,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9550239, y: 6.7966137, z: 24.872791}
   m_Center: {x: -0.022488058, y: 2.8983068, z: 12.241035}
+--- !u!114 &1559356179557556811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195734818683759669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 1329871202617774717}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &430484626591028846
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,6 +211,7 @@ GameObject:
   - component: {fileID: 3255541996231442474}
   - component: {fileID: 4413901746622349591}
   - component: {fileID: 7855538528912563121}
+  - component: {fileID: 1428344276980024134}
   m_Layer: 0
   m_Name: North
   m_TagString: Ground
@@ -272,6 +293,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31.4658, y: 6.675112, z: 1}
   m_Center: {x: 15.561484, y: 2.837556, z: 0}
+--- !u!114 &1428344276980024134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173910739660522808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 7855538528912563121}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &1343362371370127397
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +324,7 @@ GameObject:
   - component: {fileID: 9055066067444767924}
   - component: {fileID: 6355920467313331925}
   - component: {fileID: 5128390497220714257}
+  - component: {fileID: 5883671724891898855}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Ground
@@ -365,6 +406,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.63496304, y: 5.453975, z: 3.166292}
   m_Center: {x: -0.16898012, y: 2.2269876, z: 1.083146}
+--- !u!114 &5883671724891898855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343362371370127397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 5128390497220714257}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &2162101439000860926
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,6 +437,7 @@ GameObject:
   - component: {fileID: 8956232684983684979}
   - component: {fileID: 1226197106064750960}
   - component: {fileID: 6379703606581565268}
+  - component: {fileID: 135527661887707474}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Ground
@@ -458,6 +519,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6335635, y: 5.0184064, z: 2.6868477}
   m_Center: {x: -0.18321824, y: 2.0092032, z: 1.1883378}
+--- !u!114 &135527661887707474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2162101439000860926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 6379703606581565268}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &2424301609020598488
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +619,7 @@ GameObject:
   - component: {fileID: 6535167102460841130}
   - component: {fileID: 2974567335135834277}
   - component: {fileID: 7906380671872958549}
+  - component: {fileID: 1897946701611741056}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Ground
@@ -620,6 +701,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6335635, y: 5.7701383, z: 2.702579}
   m_Center: {x: -0.18321824, y: 2.3850691, z: 1.1804721}
+--- !u!114 &1897946701611741056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4104850421083070783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 7906380671872958549}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &4124021518190861206
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +732,7 @@ GameObject:
   - component: {fileID: 7748901095898832753}
   - component: {fileID: 1103759620651598283}
   - component: {fileID: 5509906435919418525}
+  - component: {fileID: 2973206990763189493}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Ground
@@ -713,6 +814,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.32897, y: 5.74952, z: 0.6139822}
   m_Center: {x: -3.5513077, y: 2.37476, z: 2.2247705}
+--- !u!114 &2973206990763189493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4124021518190861206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 5509906435919418525}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &5582078096111927580
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +845,7 @@ GameObject:
   - component: {fileID: 7430738576126316995}
   - component: {fileID: 7242589270792329650}
   - component: {fileID: 4497188627780105277}
+  - component: {fileID: 2665386915408825372}
   m_Layer: 0
   m_Name: South
   m_TagString: Ground
@@ -806,6 +927,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 31.4658, y: 6.879467, z: 1}
   m_Center: {x: 15.561484, y: 2.9397335, z: 0}
+--- !u!114 &2665386915408825372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5582078096111927580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 4497188627780105277}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!65 &7161612576131928456
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -831,6 +971,7 @@ GameObject:
   - component: {fileID: 9183586255376639816}
   - component: {fileID: 104197205122276837}
   - component: {fileID: 4559448926699029027}
+  - component: {fileID: 88851017493725677}
   m_Layer: 0
   m_Name: West
   m_TagString: Ground
@@ -912,6 +1053,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9550239, y: 6.7966137, z: 24.872791}
   m_Center: {x: -0.022488058, y: 2.8983068, z: 12.241035}
+--- !u!114 &88851017493725677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499744760324406127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 4559448926699029027}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &7321743521671829872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1179,7 @@ GameObject:
   - component: {fileID: 7584921405185541666}
   - component: {fileID: 6347671640136984808}
   - component: {fileID: 6661735570369812174}
+  - component: {fileID: 8377638774661031234}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Ground
@@ -1100,6 +1261,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.63496304, y: 5.5555997, z: 3.0317616}
   m_Center: {x: -0.16898012, y: 2.2777998, z: 1.0158808}
+--- !u!114 &8377638774661031234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673453594554232368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 6661735570369812174}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1 &8494336397558804143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1292,7 @@ GameObject:
   - component: {fileID: 6185456622691674245}
   - component: {fileID: 9194681265708368945}
   - component: {fileID: 2668103505870491109}
+  - component: {fileID: 5065497796447760726}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Ground
@@ -1193,6 +1374,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.32897, y: 5.682633, z: 0.6139822}
   m_Center: {x: -3.5513077, y: 2.3413165, z: 2.2247705}
+--- !u!114 &5065497796447760726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8494336397558804143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  phase: 0
+  thickness: 0
+  sourceCollider: {fileID: 2668103505870491109}
+  accurateContacts: 0
+  useDistanceFields: 0
+  distanceField: {fileID: 0}
 --- !u!1001 &430484625885156242
 PrefabInstance:
   m_ObjectHideFlags: 0

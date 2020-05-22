@@ -44,8 +44,18 @@ public class GameController : MonoBehaviour
                 if (preparationTimer < 0) { startGame(); }
                 break;
             case GameState.Playing:
-                gameTimer -= Time.deltaTime;
-                if (gameTimer < 0) { endGame(); }
+                if (gameTimer > 0)
+                {
+                    gameTimer -= Time.deltaTime;
+                }
+                else
+                {
+                    gameTimer = 0;
+                    endGame();
+                }
+
+                break;
+            default:
                 break;
         }
     }
@@ -63,8 +73,6 @@ public class GameController : MonoBehaviour
     {
         if (myState == GameState.Playing)
         {
-            myAudioController.playMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            myAudioController.playMusic.release();
 
             if (team1Score == team2Score)
             {
@@ -73,6 +81,10 @@ public class GameController : MonoBehaviour
             else
             {
                 myState = GameState.Result;
+
+                myAudioController.playMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                myAudioController.playMusic.release();
+
                 if (team1Score > team2Score) { 
                     
                     myInGameUIController.showResult(1);

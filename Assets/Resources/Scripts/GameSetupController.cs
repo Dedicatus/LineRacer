@@ -96,25 +96,37 @@ public class GameSetupController : MonoBehaviour
             case 1:
                 foreach (GameObject player in players)
                     if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player1)
+                    {
                         Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                        haloCreated = true;
+                    }
                 break;
             case 2:
                 foreach (GameObject player in players)
                     if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player2)
+                    {
                         Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                        haloCreated = true;
+                    }
                 break;
             case 3:
                 foreach (GameObject player in players)
                     if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player3)
+                    {
                         Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                        haloCreated = true;
+                    }
                 break;
             case 4:
                 foreach (GameObject player in players)
                     if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player4)
+                    {
                         Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                        haloCreated = true;
+                    }
                 break;
         }
-        haloCreated = true;
+        
     }
 
     private void CreateRope() {

@@ -362,6 +362,7 @@ MonoBehaviour:
   order: 1
   moveSpeed: 10
   turnSpeed: 250
+  mass: 0
 --- !u!1 &4177319038278792786
 GameObject:
   m_ObjectHideFlags: 0

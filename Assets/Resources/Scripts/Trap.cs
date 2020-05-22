@@ -55,8 +55,13 @@ public class Trap : MonoBehaviour
         //if (!PhotonNetwork.IsMasterClient) { return; }
             if (other.gameObject.tag == "Player" && isActive)
             {
-            myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 1, other);
-                isActive = false;
+           // myAnimator.SetBool("isIdle", false);
+           // myAnimator.SetBool("isOpen", false);
+           // myAnimator.SetBool("isClose", true);
+            Vector3 p = other.transform.position;
+            this.transform.position = new Vector3(p.x, originPosition.y, p.z);
+            myAudioController.playDizzy.start();
+            isActive = false;
                 other.gameObject.GetComponent<Player>().isStun = true;
                 other.gameObject.GetComponent<Player>().stunTime = stunTime;
                 curPlayer = other.gameObject;
@@ -74,11 +79,13 @@ public class Trap : MonoBehaviour
        //{
             if (other.gameObject == curPlayer && !isCoolDown)
             {
-           
-                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, (2, other));
+
+            //myAnimator.SetBool("isClose", false);
+           // myAnimator.SetBool("isOpen", true);
+            this.transform.position = originPosition;
 
 
-                isCoolDown = true;
+            isCoolDown = true;
             }
        // }
     }
@@ -88,17 +95,10 @@ public class Trap : MonoBehaviour
     public void RPC_PlayAnimation(int num, Transform transform) {
         if (num == 1)
         {
-            myAnimator.SetBool("isIdle", false);
-            myAnimator.SetBool("isOpen", false);
-            myAnimator.SetBool("isClose", true);
-            Vector3 p = transform.position;
-            this.transform.position = new Vector3(p.x, originPosition.y, p.z);
-            myAudioController.playDizzy.start();
+           
         }
         else {
-            myAnimator.SetBool("isClose", false);
-            myAnimator.SetBool("isOpen", true);
-            this.transform.position = originPosition;
+         
         }
     
     }

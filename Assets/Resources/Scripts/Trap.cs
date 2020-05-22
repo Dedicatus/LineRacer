@@ -25,6 +25,7 @@ public class Trap : MonoBehaviour
     void Start()
     {
         myPhotonView = GetComponent<PhotonView>();
+        myPhotonView.ViewID = 10;
         myAnimator = GetComponent<Animator>();
         originPosition = this.transform.position;
         myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();
@@ -73,8 +74,8 @@ public class Trap : MonoBehaviour
        //{
             if (other.gameObject == curPlayer && !isCoolDown)
             {
-
-                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other);
+           
+                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, (2, other));
 
 
                 isCoolDown = true;

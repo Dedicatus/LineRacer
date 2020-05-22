@@ -52,9 +52,6 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-      
-        
-
        
         if (other.gameObject.tag == "Player" && isActive)
         {
@@ -85,6 +82,7 @@ public class Trap : MonoBehaviour
     public void RPC_PlayAnimation(int num, Transform transform) {
         if (num == 1)
         {
+            Debug.Log("1111111111");
             Vector3 p = transform.position;
             this.transform.position = new Vector3(p.x, originPosition.y, p.z);
             myAnimator.SetBool("isIdle", false);
@@ -96,6 +94,7 @@ public class Trap : MonoBehaviour
 
         }
         else {
+            Debug.Log("2222");
             myAnimator.SetBool("isClose", false);
             myAnimator.SetBool("isOpen", true);
             this.transform.position = originPosition;

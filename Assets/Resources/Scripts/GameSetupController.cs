@@ -143,6 +143,7 @@ public class GameSetupController : MonoBehaviour
    
     }
 
+   
     private void Update()
     {
         if (!haloCreated)

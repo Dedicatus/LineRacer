@@ -17,10 +17,13 @@ public class Trap : MonoBehaviour
 
     private GameObject curPlayer;
     private AudioController myAudioController;
-
+    private Vector3 originPosition;
+    private Animator myAnimator;
     // Start is called before the first frame update
     void Start()
     {
+        myAnimator = GetComponent<Animator>();
+        originPosition = this.transform.position;
         myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();
 
         isCoolDown = false;
@@ -46,6 +49,12 @@ public class Trap : MonoBehaviour
     {
         
         if (other.gameObject.tag == "Player" && isActive) {
+            myAnimator.SetBool("isIdle", false);
+            myAnimator.SetBool("isOpen", false);
+
+            myAnimator.SetBool("isClose", true);
+            Vector3 p = other.transform.position;
+            this.transform.position = new Vector3(p.x, originPosition.y, p.z);
             isActive = false;
             other.gameObject.GetComponent<Player>().isStun = true;
             other.gameObject.GetComponent<Player>().stunTime = stunTime;
@@ -58,8 +67,11 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        
         if (other.gameObject == curPlayer && !isCoolDown) {
+            myAnimator.SetBool("isClose", false);
+            myAnimator.SetBool("isOpen", true);
+            myAnimator.SetBool("isIdle", true);
+            this.transform.position = originPosition;
             isCoolDown = true;
         }
     }

@@ -97,12 +97,33 @@ public class Trap : MonoBehaviour
           
             if (other.gameObject == curPlayer && !isCoolDown)
             {
-                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other.transform.GetComponent<Player>().getOrder()); ;
+                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, Translate(other.transform.GetComponent<Player>().getOrder())); ;
 
             }
         }
     }
 
+    private int Translate(Player.PlayerOrder order) {
+        int num = 0;
+        switch (order) {
+            case Player.PlayerOrder.Player1:
+                num = 1;
+                break;
+            case Player.PlayerOrder.Player2:
+                num = 2;
+                break;
+            case Player.PlayerOrder.Player3:
+                num = 3;
+                break;
+            case Player.PlayerOrder.Player4:
+                num = 4;
+                break;
+
+        }
+
+        return num;
+    }
+   
 
     [PunRPC]
     public void RPC_PlayAnimation(int num, int order) {

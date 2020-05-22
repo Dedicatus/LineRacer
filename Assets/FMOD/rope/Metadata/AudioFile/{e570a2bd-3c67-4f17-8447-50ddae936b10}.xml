@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{e570a2bd-3c67-4f17-8447-50ddae936b10}">
+		<property name="assetPath">
+			<value>278203__thepriest909__bear-trap.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.49807256235827663</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3af91427-80e6-4a19-aade-e701cf7be0d7}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -49,8 +49,7 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (PhotonNetwork.isMasterClient)
-        {
+      
             if (other.gameObject.tag == "Player" && isActive)
             {
                 myAnimator.SetBool("isIdle", false);
@@ -66,13 +65,12 @@ public class Trap : MonoBehaviour
                 // myAudioController.playDizzy.release();
 
             }
-        }
+        
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (PhotonNetwork.isMasterClient)
-        {
+        
 
             if (other.gameObject == curPlayer && !isCoolDown)
             {
@@ -82,6 +80,6 @@ public class Trap : MonoBehaviour
                 this.transform.position = originPosition;
                 isCoolDown = true;
             }
-        }
+        
     }
 }

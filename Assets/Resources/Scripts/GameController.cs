@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
     {
         myInGameUIController = GameObject.FindWithTag("System").transform.Find("InGameUIController").GetComponent<InGameUIController>();
         myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();
+
         myState = GameState.Preparation;
         team1Score = 0;
         team2Score = 0;

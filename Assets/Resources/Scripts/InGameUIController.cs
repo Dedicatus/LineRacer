@@ -71,8 +71,16 @@ public class InGameUIController : MonoBehaviour
         overtimeText.SetActive(true);
     }
 
-    public void returnToLobby()
+    public void DisconnectPlayer()
     {
+        StartCoroutine(DisconnectAndLoad());
+    }
+
+    IEnumerator DisconnectAndLoad()
+    {
+        PhotonNetwork.Disconnect();
+        while (PhotonNetwork.IsConnected)
+            yield return null;
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }

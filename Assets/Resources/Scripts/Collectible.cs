@@ -17,10 +17,12 @@ public class Collectible : MonoBehaviour
 
     float soundTimer;
     Rigidbody rb;
+    private AudioController myAudioController;
     private void Start()
     {
         soundTimer = soundCD;
         rb = gameObject.GetComponent<Rigidbody>();
+        myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();
     }
 
     private void FixedUpdate()
@@ -70,6 +72,8 @@ public class Collectible : MonoBehaviour
 
     void makesound()
     {
+        myAudioController.playSheep.start();
+        myAudioController.playSheep.release();
         Debug.Log("mie~");
     }
 

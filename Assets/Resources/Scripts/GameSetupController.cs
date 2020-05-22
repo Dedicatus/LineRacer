@@ -59,7 +59,7 @@ public class GameSetupController : MonoBehaviour
     private void CreatePlayer()
     {
 
-        Debug.Log("Creating Player");
+        //Debug.Log("Creating Player");
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1"), spawnPoints[0].position, Quaternion.identity);
@@ -130,7 +130,7 @@ public class GameSetupController : MonoBehaviour
     }
 
     private void CreateRope() {
-        Debug.Log("Creating Rope");
+        //Debug.Log("Creating Rope");
         if (PhotonNetwork.IsMasterClient) {
             team1Rope = GameObject.Instantiate(ropePrefabTeam1, new Vector3(-18f, 1.15f, -5.5f), Quaternion.identity);
             team2Rope = GameObject.Instantiate(ropePrefabTeam2, new Vector3(17f, 1.15f, -5.5f), Quaternion.identity);
@@ -161,7 +161,7 @@ public class GameSetupController : MonoBehaviour
             {
                 //ASSIGN SCENE
                 players = GameObject.FindGameObjectsWithTag("Player");
-                Debug.Log(players.Length);
+                //Debug.Log(players.Length);
                 
                 
                 foreach (GameObject player in players)

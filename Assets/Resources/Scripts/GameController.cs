@@ -117,6 +117,36 @@ public class GameController : MonoBehaviour
             myAudioController.playFirstSheep.release();
         }
 
+        if (team1Score + team2Score == 20)
+        {
+            myAudioController.playHerdingSpree.start();
+            myAudioController.playHerdingSpree.release();
+        }
+
+        if (team1Score + team2Score == 40)
+        {
+            myAudioController.playMegaSheep.start();
+            myAudioController.playMegaSheep.release();
+        }
+
+        if (team1Score + team2Score == 60)
+        {
+            myAudioController.playMonsterShepherd.start();
+            myAudioController.playMonsterShepherd.release();
+        }
+
+        if (team1Score + team2Score == 80)
+        {
+            myAudioController.playGodPanLike.start();
+            myAudioController.playGodPanLike.release();
+        }
+
+        if (team1Score + team2Score == 100)
+        {
+            myAudioController.playHolyShepherd.start();
+            myAudioController.playHolyShepherd.release();
+        }
+
         myAudioController.playScore.start();
       //  myAudioController.playScore.release();
         

@@ -25,40 +25,12 @@ public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
         myPlayer = gameObject.GetComponent<Player>();
         playerList = GameObject.FindGameObjectsWithTag("Player");
         myPhotonView = gameObject.GetComponent<PhotonView>();
-        createHalo();
         forward = false;
         backward = false;
         left = false;
         right = false;
     }
 
-    void createHalo()
-    {
-        foreach (GameObject player in playerList)
-        {
-            Player myPlayerScript = player.GetComponent<Player>();
-            if (order == PlayerOrder.Player1)
-            { 
-                if(myPlayerScript.getOrder() == Player.PlayerOrder.Player1)
-                    Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), myPlayerScript.transform.position - new Vector3(0f,0.4f,0f), Quaternion.identity);
-            }
-            if (order == PlayerOrder.Player2)
-            {
-                if (myPlayerScript.getOrder() == Player.PlayerOrder.Player2)
-                    Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), myPlayerScript.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity);
-            }
-            if (order == PlayerOrder.Player3)
-            {
-                if (myPlayerScript.getOrder() == Player.PlayerOrder.Player3)
-                    Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), myPlayerScript.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity);
-            }
-            if (order == PlayerOrder.Player4)
-            {
-                if (myPlayerScript.getOrder() == Player.PlayerOrder.Player4)
-                    Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), myPlayerScript.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity);
-            }
-        }
-    }
 
     // Update is called once per frame
     void FixedUpdate()

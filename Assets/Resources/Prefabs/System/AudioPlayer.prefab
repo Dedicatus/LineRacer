@@ -45,8 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb7e63407d50e847be42278954154f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClips:
-  - {fileID: 8300000, guid: 2ad7b1b878c85944baba09bc26c4b344, type: 3}
+  audioClips: []
+  sfxBusVolume: 0
+  musicBusVolume: 0
+  setting: {fileID: 0}
+  sliderSFX: {fileID: 0}
+  sliderMusic: {fileID: 0}
 --- !u!82 &1017833821212592704
 AudioSource:
   m_ObjectHideFlags: 0

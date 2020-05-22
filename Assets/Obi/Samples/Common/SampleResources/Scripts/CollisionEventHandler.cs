@@ -53,7 +53,7 @@ public class CollisionEventHandler : MonoBehaviour {
 public class CollisionEventHandler : MonoBehaviour {
 
  	ObiSolver solver;
-	public int counter = 0;
+	public int spawnTimer = 0;
 	public Collider targetCollider = null;
 
 	HashSet<int> particles = new HashSet<int>();
@@ -90,7 +90,7 @@ public class CollisionEventHandler : MonoBehaviour {
 		}
 
 		particles.ExceptWith(currentParticles);
-		counter += particles.Count;
+		spawnTimer += particles.Count;
 		particles = currentParticles;
 	}
 

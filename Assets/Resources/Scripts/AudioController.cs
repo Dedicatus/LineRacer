@@ -34,10 +34,10 @@ public class AudioController : MonoBehaviour
     private float musicBusVolume;
     private float musicVol;
 
-    private GameObject setting;
+    [SerializeField] private GameObject setting;
 
-    public Slider sliderSFX;
-    public Slider sliderMusic;
+    [SerializeField] private Slider sliderSFX;
+    [SerializeField] private Slider sliderMusic;
 
     // Start is called before the first frame update
     void Start()
@@ -55,11 +55,8 @@ public class AudioController : MonoBehaviour
         playScore = FMODUnity.RuntimeManager.CreateInstance("event:/score");
         playSheep = FMODUnity.RuntimeManager.CreateInstance("event:/sheep");
 
-        setting = GameObject.Find("layout");
         MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/music");
         SFXBus = FMODUnity.RuntimeManager.GetBus("bus:/sfx");
-        sliderSFX = GameObject.Find("SFXSlider").GetComponent<Slider>();
-        sliderMusic = GameObject.Find("MusicSlider").GetComponent<Slider>();
         setting.SetActive(false);
     }
 
@@ -80,6 +77,7 @@ public class AudioController : MonoBehaviour
         SFXBus.setVolume(sfxVol);
         //Debug.Log(sliderSFX.value);
     }
+
     public void changeMusicVol()
     {
         musicBusVolume = sliderMusic.value;

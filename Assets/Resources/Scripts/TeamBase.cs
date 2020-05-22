@@ -7,11 +7,11 @@ public class TeamBase : MonoBehaviour
     [SerializeField] private GameController.Team myTeam;
 
     private GameController myGameController;
-    private SheepCreator mySheepCreator;
+    private SheepSpawnController mySheepSpawnController;
     private void Start()
     {
         myGameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
-        mySheepCreator = GameObject.FindWithTag("SheepCreator").GetComponent<SheepCreator>();
+        mySheepSpawnController = GameObject.FindWithTag("SheepSpawnController").GetComponent<SheepSpawnController>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -20,8 +20,8 @@ public class TeamBase : MonoBehaviour
         {
             myGameController.addScore(myTeam, other.GetComponent<Collectible>().getValue());
             if (other.tag == "GoldenSheep")
-                mySheepCreator.goal(true);
-            else mySheepCreator.goal(false);
+                mySheepSpawnController.captureSheep(true);
+            else mySheepSpawnController.captureSheep(false);
         }
     }
 }

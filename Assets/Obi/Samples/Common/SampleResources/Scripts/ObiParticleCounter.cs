@@ -7,7 +7,7 @@ using Obi;
 public class ObiParticleCounter : MonoBehaviour {
 
     ObiSolver solver;
-    public int counter = 0;
+    public int spawnTimer = 0;
     public Collider2D targetCollider = null;
     
     Obi.ObiSolver.ObiCollisionEventArgs frame;
@@ -45,8 +45,8 @@ public class ObiParticleCounter : MonoBehaviour {
         }
 
         particles.ExceptWith(currentParticles);
-        counter += particles.Count;
-		particles = currentParticles;Debug.Log(counter);
+        spawnTimer += particles.Count;
+		particles = currentParticles;Debug.Log(spawnTimer);
     }
 
 }

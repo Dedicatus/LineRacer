@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SheepCreator : MonoBehaviour
+public class SheepSpawnController : MonoBehaviour
 {
     [SerializeField] private Transform topleftPoint;
     [SerializeField] private Transform bottomRightPoint;
-    [SerializeField] private float clock = 15;
-    [SerializeField] private int sheepNumber,goldenSheep;
-    float counter;
+    [SerializeField] private float spawnCD = 15;
+    [SerializeField] private int sheepNumber, goldenSheep;
+    float spawnTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,16 +31,16 @@ public class SheepCreator : MonoBehaviour
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "GoldenSheep"), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
             }
         }
-        counter = clock;
+        spawnTimer = spawnCD;
     }
 
     // Update is called once per frame
     void Update()
     {
-        counter -= Time.deltaTime;
+        spawnTimer -= Time.deltaTime;
         if (sheepNumber == 0)
-            counter = 0;
-        if (counter <= 0)
+            spawnTimer = 0;
+        if (spawnTimer <= 0)
         {
             if (goldenSheep <= 0)
             {
@@ -58,14 +58,14 @@ public class SheepCreator : MonoBehaviour
                     PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
             }
             sheepNumber++;
-            counter = clock;
+            spawnTimer = spawnCD;
         }
 
     }
 
-    public void goal(bool i)
+    public void captureSheep(bool isGolden)
     {
-        if (i)
+        if (isGolden)
             goldenSheep--;
         sheepNumber--;
     }

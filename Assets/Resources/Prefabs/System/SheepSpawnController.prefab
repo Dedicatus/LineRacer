@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788172214385118940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.81, y: 0, z: 13.22}
+  m_LocalPosition: {x: -17.42, y: 0, z: 18.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8788172215197123909}
@@ -41,8 +41,8 @@ GameObject:
   - component: {fileID: 8788172215197123909}
   - component: {fileID: 8788172215197123908}
   m_Layer: 0
-  m_Name: SheepCreator
-  m_TagString: SheepCreator
+  m_Name: SheepSpawnController
+  m_TagString: SheepSpawnController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topleftPoint: {fileID: 8788172214385118941}
   bottomRightPoint: {fileID: 8788172215298765530}
-  clock: 15
+  spawnCD: 15
   sheepNumber: 0
   goldenSheep: 0
 --- !u!1 &8788172215298765533
@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8788172215298765533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.7, y: 0, z: 8.58}
+  m_LocalPosition: {x: 17.7, y: 0, z: 12.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8788172215197123909}

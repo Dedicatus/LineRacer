@@ -8,6 +8,9 @@ TagManager:
   - Collectible
   - System
   - RemotePlayer
+  - Ground
+  - SheepSpawnController
+  - SheepCreator
   layers:
   - Default
   - TransparentFX

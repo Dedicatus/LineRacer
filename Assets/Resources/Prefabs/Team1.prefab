@@ -1024,7 +1024,7 @@ PrefabInstance:
     - target: {fileID: 3682872262856822294, guid: c8d978be95bce514287fb7ce7fae1b4d,
         type: 3}
       propertyPath: viewIdField
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5163684972614953270, guid: c8d978be95bce514287fb7ce7fae1b4d,
         type: 3}
@@ -1104,7 +1104,7 @@ PrefabInstance:
     - target: {fileID: 2675887483329194434, guid: 13b64fe4c56f35746a9feaaacaab40b0,
         type: 3}
       propertyPath: viewIdField
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3542152030595417916, guid: 13b64fe4c56f35746a9feaaacaab40b0,
         type: 3}

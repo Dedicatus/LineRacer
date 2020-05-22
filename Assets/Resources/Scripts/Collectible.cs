@@ -73,7 +73,7 @@ public class Collectible : MonoBehaviour
     void makesound()
     {
         myAudioController.playSheep.start();       
-        Debug.Log("mie~");
+        //Debug.Log("mie~");
     }
 
     public int getValue()
@@ -84,7 +84,7 @@ public class Collectible : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;
         gameObject.GetComponent<ObiCollider>().enabled = false;
         transform.Find("SheepCollider").gameObject.AddComponent<Rigidbody>();
-        transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size = new Vector3(transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.x * 2, transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.y, transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.z * 2);
+        transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size = new Vector3(transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.x * 1.5f, transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.y, transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.z * 1.5f);
         isAutopilot = true;
         return scoreValue;
     }

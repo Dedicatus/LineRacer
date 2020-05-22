@@ -14,6 +14,7 @@ public class InGameUIController : MonoBehaviour
 
     [SerializeField] private GameObject overtimeText;
     [SerializeField] private GameObject resultBackground;
+    [SerializeField] private GameObject returnButton;
     [SerializeField] private GameObject team1Win;
     [SerializeField] private GameObject team2Win;
 
@@ -51,6 +52,7 @@ public class InGameUIController : MonoBehaviour
     {
         overtimeText.SetActive(false);
         resultBackground.SetActive(true);
+        returnButton.SetActive(true);
 
         switch (team)
         {

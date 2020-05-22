@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1d506ce20e425c34ab981dbcc0f42d01, type: 2}
+  - {fileID: 2100000, guid: c10a3c8bf18db39409ccbda70bc6927b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,8 +98,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.33234525, y: 0.7843256, z: 1.1695404}
-  m_Center: {x: -0.08880222, y: 0.0135240555, z: 0.013786316}
+  m_Size: {x: 0.30441338, y: 0.80057687, z: 1.1741956}
+  m_Center: {x: -0.02362749, y: 0.0053984327, z: 0.016113918}
 --- !u!54 &5163684972614953268
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: aa8f3f90675634168af15a6ceaf1f24d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.065
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: aa8f3f90675634168af15a6ceaf1f24d,
         type: 3}

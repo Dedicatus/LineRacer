@@ -1,6 +1,7 @@
 ﻿using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
@@ -14,7 +15,7 @@ public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
     [SerializeField] private bool backward;
     [SerializeField] private bool left;
     [SerializeField] private bool right;
-
+    [SerializeField] GameObject[] playerList;
     private Player myPlayer;
     private PhotonView myPhotonView;
 
@@ -22,12 +23,14 @@ public class RemotePlayer : MonoBehaviourPunCallbacks, IPunObservable
     void Start()
     {
         myPlayer = gameObject.GetComponent<Player>();
+        playerList = GameObject.FindGameObjectsWithTag("Player");
         myPhotonView = gameObject.GetComponent<PhotonView>();
         forward = false;
         backward = false;
         left = false;
         right = false;
     }
+
 
     // Update is called once per frame
     void FixedUpdate()

@@ -20,6 +20,11 @@ public class AudioController : MonoBehaviour
     public FMOD.Studio.EventInstance playFirstSheep;
     public FMOD.Studio.EventInstance playScore;
     public FMOD.Studio.EventInstance playSheep;
+    public FMOD.Studio.EventInstance playHerdingSpree;
+    public FMOD.Studio.EventInstance playMegaSheep;
+    public FMOD.Studio.EventInstance playMonsterShepherd;
+    public FMOD.Studio.EventInstance playGodPanLike;
+    public FMOD.Studio.EventInstance playHolyShepherd;
 
     // volume control
     FMOD.Studio.Bus SFXBus;
@@ -54,6 +59,11 @@ public class AudioController : MonoBehaviour
         playFirstSheep = FMODUnity.RuntimeManager.CreateInstance("event:/firstsheep");
         playScore = FMODUnity.RuntimeManager.CreateInstance("event:/score");
         playSheep = FMODUnity.RuntimeManager.CreateInstance("event:/sheep");
+        playHerdingSpree = FMODUnity.RuntimeManager.CreateInstance("event:/herdingspree");
+        playMegaSheep = FMODUnity.RuntimeManager.CreateInstance("event:/megasheep");
+        playMonsterShepherd = FMODUnity.RuntimeManager.CreateInstance("event:/monstershepherd");
+        playGodPanLike = FMODUnity.RuntimeManager.CreateInstance("event:/godpanlike");
+        playHolyShepherd = FMODUnity.RuntimeManager.CreateInstance("event:/holyshepherd");
 
         MusicBus = FMODUnity.RuntimeManager.GetBus("bus:/music");
         SFXBus = FMODUnity.RuntimeManager.GetBus("bus:/sfx");

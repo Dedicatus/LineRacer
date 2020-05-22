@@ -51,10 +51,10 @@ public class GameSetupController : MonoBehaviour
     {
         team1Attachments = team1Rope.GetComponentsInChildren<ObiParticleAttachment>();
         team2Attachments = team2Rope.GetComponentsInChildren<ObiParticleAttachment>();
-        foreach (Transform sheepSpawnPoint in sheepSpawnPoints)
-        {
-            if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
-        }
+        //foreach (Transform sheepSpawnPoint in sheepSpawnPoints)
+        //{
+        //    if (PhotonNetwork.IsMasterClient) { PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), sheepSpawnPoint.position, sheepSpawnPoint.rotation); }
+        //}
     }
 
     private void CreatePlayer()
@@ -68,20 +68,32 @@ public class GameSetupController : MonoBehaviour
             PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3"), spawnPoints[2].position, Quaternion.identity);
             PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4"), spawnPoints[3].position, spawnPoints[3].rotation);
         }
-
+        players = GameObject.FindGameObjectsWithTag("Player");
         switch (PhotonNetwork.LocalPlayer.ActorNumber)
         {
             case 1:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1Remote"), spawnPoints[0].position, spawnPoints[0].rotation);
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player1)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity,player.transform);   
                 break;
             case 2:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2Remote"), spawnPoints[1].position, spawnPoints[1].rotation);
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player2)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
                 break;
             case 3:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3Remote"), spawnPoints[2].position, spawnPoints[2].rotation);
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player3)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
                 break;
             case 4:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4Remote"), spawnPoints[3].position, spawnPoints[3].rotation);
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player4)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
                 break;
 
         }

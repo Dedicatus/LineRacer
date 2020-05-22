@@ -153,6 +153,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1588228973928125791, guid: f3fa4e14183c2664d8488ce3531da4e7,
+        type: 3}
+      propertyPath: m_Name
+      value: SFXSlider
+      objectReference: {fileID: 0}
     - target: {fileID: 2099470148880577410, guid: f3fa4e14183c2664d8488ce3531da4e7,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -312,6 +317,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251626847367820144, guid: f3fa4e14183c2664d8488ce3531da4e7,
+        type: 3}
+      propertyPath: m_MinValue
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251626847367820144, guid: f3fa4e14183c2664d8488ce3531da4e7,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323432125960569332, guid: f3fa4e14183c2664d8488ce3531da4e7,
+        type: 3}
+      propertyPath: m_MinValue
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323432125960569332, guid: f3fa4e14183c2664d8488ce3531da4e7,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5387370918693268616, guid: f3fa4e14183c2664d8488ce3531da4e7,
         type: 3}
@@ -1193,6 +1218,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1907199956352470, guid: 2dbf40ed4f4b6414ebfded8ad3d6f27b, type: 3}
+      propertyPath: viewIdField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907199985895672, guid: 2dbf40ed4f4b6414ebfded8ad3d6f27b, type: 3}
+      propertyPath: viewIdField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907200000632176, guid: 2dbf40ed4f4b6414ebfded8ad3d6f27b, type: 3}
+      propertyPath: viewIdField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907200347770122, guid: 2dbf40ed4f4b6414ebfded8ad3d6f27b, type: 3}
+      propertyPath: viewIdField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 430484626591028833, guid: 2dbf40ed4f4b6414ebfded8ad3d6f27b,
         type: 3}
       propertyPath: m_LocalPosition.x

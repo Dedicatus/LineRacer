@@ -41,6 +41,7 @@ public class Trap : MonoBehaviour
                 isCoolDown = false;
                 isActive = true;
                 coolDownTimer = 0;
+                myAnimator.SetBool("isIdle", true);
             }
         }
     }
@@ -51,7 +52,6 @@ public class Trap : MonoBehaviour
         if (other.gameObject.tag == "Player" && isActive) {
             myAnimator.SetBool("isIdle", false);
             myAnimator.SetBool("isOpen", false);
-
             myAnimator.SetBool("isClose", true);
             Vector3 p = other.transform.position;
             this.transform.position = new Vector3(p.x, originPosition.y, p.z);
@@ -70,7 +70,7 @@ public class Trap : MonoBehaviour
         if (other.gameObject == curPlayer && !isCoolDown) {
             myAnimator.SetBool("isClose", false);
             myAnimator.SetBool("isOpen", true);
-            myAnimator.SetBool("isIdle", true);
+            
             this.transform.position = originPosition;
             isCoolDown = true;
         }

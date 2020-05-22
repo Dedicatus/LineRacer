@@ -27,6 +27,7 @@ public class Player : MonoBehaviourPunCallbacks
     [SerializeField] private float turnSpeed = 250f;
     [SerializeField] private float mass;
 
+    private bool changeMass = false;
     float cameraRotationY;
 
     // Start is called before the first frame update
@@ -51,10 +52,15 @@ public class Player : MonoBehaviourPunCallbacks
         if (isStun)
         {
             stunTimer += Time.deltaTime;
+            if (!changeMass) {
             gameObject.GetComponent<Rigidbody>().mass = mass * 1000f;
+                rigidBody.velocity = new Vector3(0,0,0);
+                changeMass = true;
+            }
             if (stunTimer >= stunTime) 
             {
                 gameObject.GetComponent<Rigidbody>().mass = mass;
+                changeMass = false;
                 isStun = false;
                 stunTimer = 0;
             }

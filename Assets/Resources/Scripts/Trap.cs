@@ -31,7 +31,7 @@ public class Trap : MonoBehaviour
     void Start()
     {
 
-        players = GameObject.FindGameObjectsWithTag("Player");
+      
        
         myPhotonView = GetComponent<PhotonView>();
         
@@ -65,6 +65,7 @@ public class Trap : MonoBehaviour
 
         if (player1 == null || player2 == null || player3 == null || player4 == null)
         {
+            players = GameObject.FindGameObjectsWithTag("Player");
             foreach (GameObject player in players)
             {
                 Player myPlayerScript = player.GetComponent<Player>();
@@ -82,12 +83,9 @@ public class Trap : MonoBehaviour
                     case Player.PlayerOrder.Player4:
                         player4 = player;
                         break;
-
                 }
             }
         }
-
-
     }
     public void OnTriggerEnter(Collider other)
     {

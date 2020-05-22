@@ -34,17 +34,16 @@ public class GameSetupController : MonoBehaviour
     private int roomSize;
     private bool allCreated;
     private bool initialized;
-
+    bool haloCreated;
 
     private void Awake()
     {
         roomSize = 4;
-
+        haloCreated = false;
         initialized = false;
         allCreated = false;
         CreatePlayer();
         CreateRope();
-
     }
 
     void Start()
@@ -68,38 +67,55 @@ public class GameSetupController : MonoBehaviour
             PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3"), spawnPoints[2].position, Quaternion.identity);
             PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4"), spawnPoints[3].position, spawnPoints[3].rotation);
         }
-        players = GameObject.FindGameObjectsWithTag("Player");
         switch (PhotonNetwork.LocalPlayer.ActorNumber)
         {
             case 1:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player1Remote"), spawnPoints[0].position, spawnPoints[0].rotation);
-                foreach (GameObject player in players)
-                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player1)
-                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity,player.transform);   
                 break;
             case 2:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player2Remote"), spawnPoints[1].position, spawnPoints[1].rotation);
-                foreach (GameObject player in players)
-                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player2)
-                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
                 break;
             case 3:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player3Remote"), spawnPoints[2].position, spawnPoints[2].rotation);
-                foreach (GameObject player in players)
-                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player3)
-                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
                 break;
             case 4:
                 PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player4Remote"), spawnPoints[3].position, spawnPoints[3].rotation);
-                foreach (GameObject player in players)
-                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player4)
-                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
                 break;
 
         }
 
     }
 
+    private void createHalo()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
+        if (players == null)
+            return;
+        switch (PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            case 1:
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player1)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                break;
+            case 2:
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player2)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo1")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                break;
+            case 3:
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player3)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                break;
+            case 4:
+                foreach (GameObject player in players)
+                    if (player.GetComponent<Player>().getOrder() == Player.PlayerOrder.Player4)
+                        Instantiate(Resources.Load(Path.Combine("Prefabs", "Halo2")), player.transform.position - new Vector3(0f, 0.4f, 0f), Quaternion.identity, player.transform);
+                break;
+        }
+        haloCreated = true;
+    }
 
     private void CreateRope() {
         Debug.Log("Creating Rope");
@@ -117,6 +133,8 @@ public class GameSetupController : MonoBehaviour
 
     private void Update()
     {
+        if (!haloCreated)
+            createHalo();
         if (!initialized)
         {
             if (!allCreated)

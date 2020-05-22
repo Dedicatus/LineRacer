@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 5387829333234442070}
   - component: {fileID: 2057833384436041422}
   - component: {fileID: 7731303488355774437}
-  - component: {fileID: 449395434251654630}
   m_Layer: 0
   m_Name: GoldenSheep
   m_TagString: GoldenSheep
@@ -274,6 +273,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 3
   collected: 0
+  isAutopilot: 0
+  autopilotSpeed: 3
+  target: {fileID: 0}
 --- !u!114 &2057833384436041422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,18 +313,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &449395434251654630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387829333234442069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d28f56ef1dffa4ea9f70c4fe29df01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7082969628156739548
 GameObject:
   m_ObjectHideFlags: 0

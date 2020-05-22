@@ -54,7 +54,7 @@ public class Collectible : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Sheep" || collision.gameObject.tag == "GoldenSheep")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
         }

@@ -52,19 +52,23 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        //if (!PhotonNetwork.IsMasterClient) { return; }
-            if (other.gameObject.tag == "Player" && isActive)
-            {
-           // myAnimator.SetBool("isIdle", false);
-           // myAnimator.SetBool("isOpen", false);
-           // myAnimator.SetBool("isClose", true);
+        Debug.Log("1");
+        if (!PhotonNetwork.IsMasterClient) { return; }
+
+        Debug.Log("2");
+        if (other.gameObject.tag == "Player" && isActive)
+        {
+            Debug.Log("3");
+            // myAnimator.SetBool("isIdle", false);
+            // myAnimator.SetBool("isOpen", false);
+            // myAnimator.SetBool("isClose", true);
             Vector3 p = other.transform.position;
             //this.transform.position = new Vector3(p.x, originPosition.y, p.z);
             myAudioController.playDizzy.start();
             isActive = false;
-                other.gameObject.GetComponent<Player>().isStun = true;
-                other.gameObject.GetComponent<Player>().stunTime = stunTime;
-                curPlayer = other.gameObject;
+            other.gameObject.GetComponent<Player>().isStun = true;
+            other.gameObject.GetComponent<Player>().stunTime = stunTime;
+            curPlayer = other.gameObject;
                 
                 // myAudioController.playDizzy.release();
 
@@ -74,20 +78,21 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-
-       // if (PhotonNetwork.IsMasterClient)
-       //{
+        Debug.Log("4");
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("5");
             if (other.gameObject == curPlayer && !isCoolDown)
             {
+                Debug.Log("6");
+                //myAnimator.SetBool("isClose", false);
+                // myAnimator.SetBool("isOpen", true);
+                //this.transform.position = originPosition;
 
-            //myAnimator.SetBool("isClose", false);
-           // myAnimator.SetBool("isOpen", true);
-            //this.transform.position = originPosition;
 
-
-            isCoolDown = true;
+                isCoolDown = true;
             }
-       // }
+        }
     }
 
 

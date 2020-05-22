@@ -92,56 +92,56 @@ public class RemotePlayerController : MonoBehaviour
             {
                 player.transform.rotation = Quaternion.Euler(0, 45, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("WD" + myPlayerScript.getOrder());
+                //Debug.Log("WD" + myPlayerScript.getOrder());
             }
 
             else if (myRemotePlayerScript.getForward() && myRemotePlayerScript.getLeft())
             {
                 player.transform.rotation = Quaternion.Euler(0, 315, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("WA" + myPlayerScript.getOrder());
+                //Debug.Log("WA" + myPlayerScript.getOrder());
             }
 
             else if (myRemotePlayerScript.getBackward() && myRemotePlayerScript.getRight())
             {
                 player.transform.rotation = Quaternion.Euler(0, 135, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("SD" + myPlayerScript.getOrder());
+                //Debug.Log("SD" + myPlayerScript.getOrder());
             }
 
             else if (myRemotePlayerScript.getBackward() && myRemotePlayerScript.getLeft())
             {
                 player.transform.rotation = Quaternion.Euler(0, 225, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("SA" + myPlayerScript.getOrder());
+                //Debug.Log("SA" + myPlayerScript.getOrder());
             }
 
             else if (myRemotePlayerScript.getForward())
             {
                 player.transform.rotation = Quaternion.Euler(0, 0, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("W" + myPlayerScript.getOrder());
+                //Debug.Log("W" + myPlayerScript.getOrder());
             }
 
             else if (myRemotePlayerScript.getBackward())
             {
                 player.transform.rotation = Quaternion.Euler(0, 180, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("S" + myPlayerScript.getOrder());
+                //Debug.Log("S" + myPlayerScript.getOrder());
             }
 
             else if (myRemotePlayerScript.getLeft())
             {
                 player.transform.rotation = Quaternion.Euler(0, 270, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("A" + myPlayerScript.getOrder());
+                //Debug.Log("A" + myPlayerScript.getOrder());
             }
 
             else if (myRemotePlayerScript.getRight())
             {
                 player.transform.rotation = Quaternion.Euler(0, 90, 0);
                 myPlayerRigidbody.MovePosition(player.transform.position + player.transform.forward * myPlayerScript.getMoveSpeed() * Time.fixedDeltaTime);
-                Debug.Log("D" + myPlayerScript.getOrder());
+                //Debug.Log("D" + myPlayerScript.getOrder());
             }
         }
     }

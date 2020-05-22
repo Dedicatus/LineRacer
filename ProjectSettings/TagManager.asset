@@ -10,7 +10,7 @@ TagManager:
   - RemotePlayer
   - Ground
   - SheepSpawnController
-  - SheepCreator
+  - GoldenSheep
   layers:
   - Default
   - TransparentFX

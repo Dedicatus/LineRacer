@@ -46,16 +46,22 @@ public class SheepSpawnController : MonoBehaviour
             {
                 if (PhotonNetwork.OfflineMode)
                     Instantiate(Resources.Load(Path.Combine("Prefabs", "GoldenSheep")), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
-                else if (PhotonNetwork.IsMasterClient)
-                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "GoldenSheep"), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
+                else
+                {
+                    if (PhotonNetwork.IsMasterClient)
+                        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "GoldenSheep"), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
+                }
                 goldenSheep++;
             }
             else
             {
                 if (PhotonNetwork.OfflineMode)
                     Instantiate(Resources.Load(Path.Combine("Prefabs", "Sheep")), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
-                else if (PhotonNetwork.IsMasterClient)
-                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
+                else
+                {
+                    if (PhotonNetwork.IsMasterClient)
+                        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Sheep"), new Vector3(Random.Range(topleftPoint.position.x, bottomRightPoint.position.x), 10f, Random.Range(bottomRightPoint.position.z, topleftPoint.position.z)), Quaternion.identity);
+                }
             }
             sheepNumber++;
             spawnTimer = spawnCD;

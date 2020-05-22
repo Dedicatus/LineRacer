@@ -52,45 +52,30 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("1");
-        if (!PhotonNetwork.IsMasterClient) { return; }
+      
+        
 
-        Debug.Log("2");
+       
         if (other.gameObject.tag == "Player" && isActive)
         {
-            Debug.Log("3");
-            // myAnimator.SetBool("isIdle", false);
-            // myAnimator.SetBool("isOpen", false);
-            // myAnimator.SetBool("isClose", true);
-            Vector3 p = other.transform.position;
-            //this.transform.position = new Vector3(p.x, originPosition.y, p.z);
-            myAudioController.playDizzy.start();
-            isActive = false;
+            if (!PhotonNetwork.IsMasterClient) { return; }
             other.gameObject.GetComponent<Player>().isStun = true;
             other.gameObject.GetComponent<Player>().stunTime = stunTime;
-            curPlayer = other.gameObject;
-                
-                // myAudioController.playDizzy.release();
-
-            }
+            myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 1, other.transform);
+      }
         
     }
 
     public void OnTriggerExit(Collider other)
     {
-        Debug.Log("4");
+    
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("5");
+          
             if (other.gameObject == curPlayer && !isCoolDown)
             {
-                Debug.Log("6");
-                //myAnimator.SetBool("isClose", false);
-                // myAnimator.SetBool("isOpen", true);
-                //this.transform.position = originPosition;
+            myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other.transform);
 
-
-                isCoolDown = true;
             }
         }
     }
@@ -100,10 +85,21 @@ public class Trap : MonoBehaviour
     public void RPC_PlayAnimation(int num, Transform transform) {
         if (num == 1)
         {
-           
+            Vector3 p = transform.position;
+            this.transform.position = new Vector3(p.x, originPosition.y, p.z);
+            myAnimator.SetBool("isIdle", false);
+            myAnimator.SetBool("isOpen", false);
+            myAnimator.SetBool("isClose", true);
+            myAudioController.playDizzy.start();
+            isActive = false;
+            curPlayer = transform.gameObject;
+
         }
         else {
-         
+            myAnimator.SetBool("isClose", false);
+            myAnimator.SetBool("isOpen", true);
+            this.transform.position = originPosition;
+            isCoolDown = true;
         }
     
     }

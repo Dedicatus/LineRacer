@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Trap : MonoBehaviour
 {
@@ -41,38 +42,44 @@ public class Trap : MonoBehaviour
                 isCoolDown = false;
                 isActive = true;
                 coolDownTimer = 0;
+                myAnimator.SetBool("isIdle", true);
             }
         }
     }
 
     public void OnTriggerEnter(Collider other)
     {
+      
+            if (other.gameObject.tag == "Player" && isActive)
+            {
+                myAnimator.SetBool("isIdle", false);
+                myAnimator.SetBool("isOpen", false);
+                myAnimator.SetBool("isClose", true);
+                Vector3 p = other.transform.position;
+                this.transform.position = new Vector3(p.x, originPosition.y, p.z);
+                isActive = false;
+                other.gameObject.GetComponent<Player>().isStun = true;
+                other.gameObject.GetComponent<Player>().stunTime = stunTime;
+                curPlayer = other.gameObject;
+                myAudioController.playDizzy.start();
+                // myAudioController.playDizzy.release();
+
+            }
         
-        if (other.gameObject.tag == "Player" && isActive) {
-            myAnimator.SetBool("isIdle", false);
-            myAnimator.SetBool("isOpen", false);
-
-            myAnimator.SetBool("isClose", true);
-            Vector3 p = other.transform.position;
-            this.transform.position = new Vector3(p.x, originPosition.y, p.z);
-            isActive = false;
-            other.gameObject.GetComponent<Player>().isStun = true;
-            other.gameObject.GetComponent<Player>().stunTime = stunTime;
-            curPlayer = other.gameObject;
-            myAudioController.playDizzy.start();
-           // myAudioController.playDizzy.release();
-
-        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == curPlayer && !isCoolDown) {
-            myAnimator.SetBool("isClose", false);
-            myAnimator.SetBool("isOpen", true);
-            myAnimator.SetBool("isIdle", true);
-            this.transform.position = originPosition;
-            isCoolDown = true;
-        }
+        
+
+            if (other.gameObject == curPlayer && !isCoolDown)
+            {
+                myAnimator.SetBool("isClose", false);
+                myAnimator.SetBool("isOpen", true);
+
+                this.transform.position = originPosition;
+                isCoolDown = true;
+            }
+        
     }
 }

@@ -20,9 +20,11 @@ public class Trap : MonoBehaviour
     private AudioController myAudioController;
     private Vector3 originPosition;
     private Animator myAnimator;
+    private PhotonView myPhotonView;
     // Start is called before the first frame update
     void Start()
     {
+        myPhotonView = GetComponent<PhotonView>();
         myAnimator = GetComponent<Animator>();
         originPosition = this.transform.position;
         myAudioController = GameObject.FindWithTag("System").transform.Find("AudioPlayer").GetComponent<AudioController>();
@@ -49,19 +51,15 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-      
+        if (!PhotonNetwork.IsMasterClient) { return; }
             if (other.gameObject.tag == "Player" && isActive)
             {
-                myAnimator.SetBool("isIdle", false);
-                myAnimator.SetBool("isOpen", false);
-                myAnimator.SetBool("isClose", true);
-                Vector3 p = other.transform.position;
-                this.transform.position = new Vector3(p.x, originPosition.y, p.z);
+            myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 1, other);
                 isActive = false;
                 other.gameObject.GetComponent<Player>().isStun = true;
                 other.gameObject.GetComponent<Player>().stunTime = stunTime;
                 curPlayer = other.gameObject;
-                myAudioController.playDizzy.start();
+                
                 // myAudioController.playDizzy.release();
 
             }
@@ -70,16 +68,39 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        
 
+        if (PhotonNetwork.IsMasterClient)
+        {
             if (other.gameObject == curPlayer && !isCoolDown)
             {
-                myAnimator.SetBool("isClose", false);
-                myAnimator.SetBool("isOpen", true);
 
-                this.transform.position = originPosition;
+                myPhotonView.RPC("RPC_PlayAnimation", RpcTarget.AllBuffered, 2, other);
+
+
                 isCoolDown = true;
             }
-        
+        }
     }
+
+
+    [PunRPC]
+    public void RPC_PlayAnimation(int num, Transform transform) {
+        if (num == 1)
+        {
+            myAnimator.SetBool("isIdle", false);
+            myAnimator.SetBool("isOpen", false);
+            myAnimator.SetBool("isClose", true);
+            Vector3 p = transform.position;
+            this.transform.position = new Vector3(p.x, originPosition.y, p.z);
+            myAudioController.playDizzy.start();
+        }
+        else {
+            myAnimator.SetBool("isClose", false);
+            myAnimator.SetBool("isOpen", true);
+            this.transform.position = originPosition;
+        }
+    
+    }
+
+
 }

@@ -121,14 +121,13 @@ GameObject:
   - component: {fileID: 6902854821121517202}
   - component: {fileID: 6902854821121517205}
   - component: {fileID: 6902854821121517204}
-  - component: {fileID: 2713451765877567394}
+  - component: {fileID: 5767755318379359547}
   - component: {fileID: 6902854821121517206}
   - component: {fileID: 6902854821121517211}
   - component: {fileID: 6902854821121517208}
   - component: {fileID: 6902854821121517210}
   - component: {fileID: 684638780490268418}
   - component: {fileID: 9098868116044846633}
-  - component: {fileID: 1383208840808672298}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Collectible
@@ -198,8 +197,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2713451765877567394
-CapsuleCollider:
+--- !u!65 &5767755318379359547
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -208,9 +207,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.55
-  m_Height: 7.13
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 5, z: 1.1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &6902854821121517206
 Rigidbody:
@@ -274,6 +272,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 10
   collected: 0
+  isAutopilot: 0
+  autopilotSpeed: 3
+  target: {fileID: 0}
 --- !u!114 &684638780490268418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,18 +312,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &1383208840808672298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6902854821121517209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d28f56ef1dffa4ea9f70c4fe29df01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7169265388364784783
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7205902745293442328}
   m_Layer: 0
-  m_Name: sheep
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,14 +335,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7169265388364784783}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.522802, y: 0.546575, z: 0.12888183}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.009801984, y: -0.060424965, z: -0.016118169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3296213826470572168}
   m_Father: {fileID: 5492454169189346957}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &8594403561339454992
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,8 +384,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5492454169189346957}
   - component: {fileID: 7118188144228704932}
+  - component: {fileID: 1528193316769561277}
   m_Layer: 0
-  m_Name: Sheep
+  m_Name: SheepCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8818685991619533982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.513, y: -0.607, z: -0.145}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7205902745293442328}
@@ -428,5 +418,17 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1634567, y: 1.004569, z: 0.5371343}
-  m_Center: {x: 0.49369702, y: 0.5934035, z: 0.11887179}
+  m_Size: {x: 0.6, y: 1, z: 1.1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1528193316769561277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818685991619533982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb520fef30aacc449e1cd8b425b079a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

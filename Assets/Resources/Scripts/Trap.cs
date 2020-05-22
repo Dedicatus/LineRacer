@@ -148,17 +148,17 @@ public class Trap : MonoBehaviour
                     break;
                 case 2:
                      p = player2.transform.position;
-                    curPlayer = player1.transform.gameObject;
+                    curPlayer = player2.transform.gameObject;
 
                     break;
                 case 3:
                      p = player3.transform.position;
-                    curPlayer = player1.transform.gameObject;
+                    curPlayer = player3.transform.gameObject;
 
                     break;
                 case 4:
                      p = player4.transform.position;
-                    curPlayer = player1.transform.gameObject;
+                    curPlayer = player4.transform.gameObject;
 
                     break;
 

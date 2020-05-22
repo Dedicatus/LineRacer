@@ -11,10 +11,21 @@ public class Collectible : MonoBehaviour
     [SerializeField] bool collected = false;
     [SerializeField] bool isAutopilot = false;
     [SerializeField] float autopilotSpeed = 3f;
+    [SerializeField] float maxSpeed = 6f;
+    [SerializeField] float soundCD = 5f;
     [SerializeField] Transform target;
+
+    float soundTimer;
+    Rigidbody rb;
+    private void Start()
+    {
+        soundTimer = soundCD;
+        rb = gameObject.GetComponent<Rigidbody>();
+    }
 
     private void FixedUpdate()
     {
+        detectSpeed();
         if (isAutopilot)
         {
             float step = autopilotSpeed * Time.deltaTime; // calculate distance to move
@@ -39,6 +50,29 @@ public class Collectible : MonoBehaviour
         }
     }
 
+    void detectSpeed()
+    {
+        if (rb == null)
+            return;
+        soundTimer -= Time.deltaTime;
+        if (soundTimer > 0)
+            return;
+        else
+        {
+            float curS = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.z);
+            if (curS >= maxSpeed)
+            {
+                makesound();
+                soundTimer = soundCD;
+            }
+        }
+    }
+
+    void makesound()
+    {
+        Debug.Log("mie~");
+    }
+
     public int getValue()
     {
         collected = true;
@@ -54,7 +88,7 @@ public class Collectible : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Sheep" || collision.gameObject.tag == "GoldenSheep")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Collectible" || collision.gameObject.tag == "GoldenSheep")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
         }

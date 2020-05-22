@@ -75,3 +75,23 @@ fmod_editor.log
 # Obi
 /[Aa]ssets/Obi/*.meta
 /[Aa]ssets/Resources/Blueprints/*.meta
+Assets/FMOD/rope/Desktop.meta
+Assets/FMOD/rope/Metadata/DataFile.meta
+Assets/FMOD/rope/Metadata/DAWAsset.meta
+Assets/FMOD/rope/Metadata/DAWProject.meta
+Assets/FMOD/rope/Metadata/EffectPreset.meta
+Assets/FMOD/rope/Metadata/Locale.meta
+Assets/FMOD/rope/Metadata/MixerView.meta
+Assets/FMOD/rope/Metadata/ParameterPreset.meta
+Assets/FMOD/rope/Metadata/ProfilerSession.meta
+Assets/FMOD/rope/Metadata/SandboxScene.meta
+Assets/FMOD/rope/Metadata/Snapshot.meta
+Assets/FMOD/rope/Metadata/VCA.meta
+Assets/FMOD/rope/Plugins.meta
+Assets/Resources/Blueprints/Scripts/Common/Blueprints/Constraints.meta
+Assets/Resources/Blueprints/Scripts/Common/Collisions/ColliderTrackers.meta
+Assets/Resources/Blueprints/Scripts/Common/DataStructures.meta
+Assets/Resources/Blueprints/Scripts/Common/Utils.meta
+Assets/Resources/Blueprints/Scripts/RopeAndRod/DataStructures/Path.meta
+Assets/StreamingAssets/Master.bank
+Assets/StreamingAssets/Master.strings.bank

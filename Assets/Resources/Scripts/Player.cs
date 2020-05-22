@@ -54,7 +54,7 @@ public class Player : MonoBehaviourPunCallbacks
             gameObject.GetComponent<Rigidbody>().mass = mass * 1000f;
             if (stunTimer >= stunTime) 
             {
-                gameObject.GetComponent<Rigidbody>().mass = mass / 1000f;
+                gameObject.GetComponent<Rigidbody>().mass = mass;
                 isStun = false;
                 stunTimer = 0;
             }

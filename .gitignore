@@ -27,6 +27,8 @@
 /[Aa]ssets/FMODStudioCache.asset.meta
 /fmod.log
 /fmod_editor.log
+/[Aa]ssets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+/[Aa]ssets/FMOD/*.meta
 
 # Visual Studio cache directory
 .vs/
@@ -66,11 +68,6 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-
-# Fmod
-fmod_editor.log
-/[Aa]ssets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
-/[Aa]ssets/FMOD/*.meta
 
 # Obi
 /[Aa]ssets/Obi/*.meta

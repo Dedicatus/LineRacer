@@ -102,10 +102,7 @@ public class Trap : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-    
-        
-        
-          
+       
         if (other.gameObject == curPlayer && !isCoolDown)
             {
                 if (!PhotonNetwork.IsMasterClient) { return; }
@@ -147,15 +144,22 @@ public class Trap : MonoBehaviour
             switch (order) {
                 case 1:
                      p = player1.transform.position;
+                    curPlayer = player1.transform.gameObject;
                     break;
                 case 2:
                      p = player2.transform.position;
+                    curPlayer = player1.transform.gameObject;
+
                     break;
                 case 3:
                      p = player3.transform.position;
+                    curPlayer = player1.transform.gameObject;
+
                     break;
                 case 4:
                      p = player4.transform.position;
+                    curPlayer = player1.transform.gameObject;
+
                     break;
 
             }
@@ -166,7 +170,7 @@ public class Trap : MonoBehaviour
             myAnimator.SetBool("isClose", true);
             myAudioController.playDizzy.start();
             isActive = false;
-            curPlayer = transform.gameObject;
+           
 
         }
         else {

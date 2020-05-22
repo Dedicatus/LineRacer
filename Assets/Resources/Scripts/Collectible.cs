@@ -24,6 +24,9 @@ public class Collectible : MonoBehaviour
             {
                 isAutopilot = false;
                 Quaternion rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+
+                transform.Find("SheepCollider").gameObject.GetComponent<Rigidbody>().mass *= 0.1f;
+                transform.Find("SheepCollider").gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             }
             else
             {
@@ -44,6 +47,7 @@ public class Collectible : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;
         gameObject.GetComponent<ObiCollider>().enabled = false;
         transform.Find("SheepCollider").gameObject.AddComponent<Rigidbody>();
+        transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size = new Vector3(transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.x * 2, transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.y, transform.Find("SheepCollider").gameObject.GetComponent<BoxCollider>().size.z * 2);
         isAutopilot = true;
         return scoreValue;
     }

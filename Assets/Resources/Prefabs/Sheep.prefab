@@ -241,7 +241,7 @@ MonoBehaviour:
   material: {fileID: 0}
   phase: 0
   thickness: 0
-  sourceCollider: {fileID: 0}
+  sourceCollider: {fileID: 5767755318379359547}
   accurateContacts: 0
   useDistanceFields: 0
   distanceField: {fileID: 0}
@@ -270,10 +270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfad883de1e1b2641aff483963ec5093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 10
+  scoreValue: 1
   collected: 0
   isAutopilot: 0
-  autopilotSpeed: 3
+  autopilotSpeed: 5
   target: {fileID: 0}
 --- !u!114 &684638780490268418
 MonoBehaviour:
